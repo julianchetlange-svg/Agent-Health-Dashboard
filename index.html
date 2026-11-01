@@ -148,7 +148,22 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 @keyframes swish { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
 @keyframes fidget { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
+/* Border collie: appears in the field when any agent is late or failed, to round it up. */
+.pasture.has-collie { padding-bottom: 78px; }
+.collie { position: absolute; bottom: 6px; left: 4%; width: 112px; pointer-events: none; z-index: 1; animation: patrol 16s linear infinite; }
+.colliewrap { animation: turn 16s linear infinite; }
+.colliesvg { width: 100%; height: auto; display: block; overflow: visible; animation: trot .45s ease-in-out infinite alternate; }
+.collie .cfur { fill: #25272b; stroke: #111; stroke-width: 1.5; stroke-linejoin: round; }
+.collie .cwhite { fill: #fff; stroke: #111; stroke-width: 1.5; stroke-linejoin: round; }
+.collie .cnose { fill: #111; } .collie .ceye { fill: #fff; } .collie .cpupil { fill: #111; }
+.collie .ctongue { fill: #f08a98; stroke: #111; stroke-width: 1; }
+.collie .cshadow { fill: rgba(0, 0, 0, .16); }
+.colliesay { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1px 9px; font-size: 12px; white-space: nowrap; }
+@keyframes patrol { 0% { left: 4%; } 50% { left: calc(96% - 112px); } 100% { left: 4%; } }
+@keyframes turn { 0%, 49.9% { transform: scaleX(-1); } 50%, 99.9% { transform: scaleX(1); } 100% { transform: scaleX(-1); } }
+@keyframes trot { from { transform: translateY(0); } to { transform: translateY(-3px); } }
 @media (prefers-reduced-motion: reduce) {
+  .collie, .colliewrap, .colliesvg { animation: none !important; }
   .cowcard, .cowsvg, .cowsvg .head, .cowsvg .tail { animation: none !important; }
 }
 @media (max-width: 640px) {
@@ -184,7 +199,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
   <div class="bar" id="warnings" hidden></div>
   <div class="list" id="list" aria-live="polite"></div>
 
-  <p class="note">Checked hourly from 6 AM to 6 PM Central. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
+  <p class="note">Checked at 6 AM and 12 PM Central. When an agent is late or failed, a border collie patrols the field to round it up. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
 </div>
 
 <script>
@@ -222,6 +237,22 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     + '<text class="alert" x="30" y="12" text-anchor="middle">!</text><text class="qmark" x="30" y="12" text-anchor="middle">?</text>'
     + '<text class="zzz" x="58" y="22">z</text>'
     + '</g></svg>';
+  var COLLIE = '<svg class="colliesvg" viewBox="0 0 120 70" role="img" aria-label="Border collie rounding up the herd" focusable="false">'
+    + '<ellipse class="cshadow" cx="62" cy="64" rx="46" ry="5"/>'
+    + '<path class="cfur" d="M92 34 Q112 30 116 46 Q106 40 94 44Z"/><path class="cwhite" d="M110 36 Q116 38 116 46 Q112 42 108 41Z"/>'
+    + '<rect class="cfur" x="36" y="46" width="8" height="16" rx="3"/><rect class="cfur" x="50" y="46" width="8" height="16" rx="3"/>'
+    + '<rect class="cfur" x="80" y="46" width="8" height="16" rx="3"/><rect class="cfur" x="92" y="46" width="8" height="16" rx="3"/>'
+    + '<rect class="cwhite" x="36" y="56" width="8" height="7" rx="3"/><rect class="cwhite" x="50" y="56" width="8" height="7" rx="3"/>'
+    + '<rect class="cwhite" x="80" y="56" width="8" height="7" rx="3"/><rect class="cwhite" x="92" y="56" width="8" height="7" rx="3"/>'
+    + '<ellipse class="cfur" cx="66" cy="38" rx="34" ry="14"/>'
+    + '<path class="cwhite" d="M34 36 Q42 30 44 44 Q44 52 36 50 Q30 46 34 36Z"/>'
+    + '<path class="cfur" d="M26 22 L30 10 L38 20Z"/><path class="cfur" d="M40 20 L48 10 L50 24Z"/>'
+    + '<ellipse class="cfur" cx="36" cy="30" rx="16" ry="14"/>'
+    + '<path class="cwhite" d="M34 18 Q37 20 38 28 L36 40 Q30 40 28 34 Q30 26 34 18Z"/>'
+    + '<ellipse class="cwhite" cx="24" cy="36" rx="9" ry="7"/><ellipse class="cnose" cx="17" cy="34" rx="3.2" ry="2.6"/>'
+    + '<path class="ctongue" d="M20 40 Q22 47 26 42Z"/>'
+    + '<circle class="ceye" cx="30" cy="28" r="3.4"/><circle class="cpupil" cx="29" cy="28" r="1.8"/>'
+    + '</svg>';
   function cowSvg(status) {
     var w = document.createElement("div");
     w.innerHTML = COW.replace("{s}", status);
@@ -297,8 +328,8 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     var s = $("stamp");
     if (!loaded) { s.textContent = "Loading agents…"; return; }
     var now = Date.now(), age = now - meta.generatedAt, hr = tzParts(now, TZ).hour;
-    var stale = hr >= 7 && hr < 19 && age > 3 * 3600000;
-    s.textContent = "Last check " + rel(age) + (stale ? " · hourly check may be down" : "");
+    var stale = hr >= 7 && hr < 19 && age > 8 * 3600000;
+    s.textContent = "Last check " + rel(age) + (stale ? " · scheduled check may be down" : "");
     s.className = "stamp" + (stale ? " stale" : "");
     s.title = new Date(meta.generatedAt).toLocaleString();
     var w = $("warnings"), ws = meta.warnings || [];
@@ -314,7 +345,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     var order = { failed: 0, late: 1, new: 2, ok: 3, paused: 4 };
     rows.sort(function (x, y) { return order[x.h.s] - order[y.h.s] || x.a.name.localeCompare(y.a.name); });
     var shown = filter ? rows.filter(function (r) { return r.h.s === filter; }) : rows;
-    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble"
+    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble, collie on the case"
       : counts.late ? counts.late + " running late" : "the herd is grazing happily";
     $("showing").textContent = loaded ? (filter ? "Showing " + shown.length + " of " + rows.length + " agents" : rows.length + (view === "pasture" ? " head of cattle" : " agents")) + (view === "pasture" ? " · " + mood : "") : "";
     $("v-pasture").setAttribute("aria-pressed", String(view === "pasture"));
@@ -372,6 +403,14 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
       herd.appendChild(c);
     });
     list.appendChild(herd);
+    var strays = shown.filter(function (r) { return r.h.s === "failed" || r.h.s === "late"; }).length;
+    if (strays) {
+      list.classList.add("has-collie");
+      var dog = el("div", "collie");
+      dog.appendChild(el("span", "colliesay", strays > 1 ? "Rounding up " + strays + " strays" : "Rounding up 1 stray"));
+      var dw = el("div", "colliewrap"); dw.innerHTML = COLLIE; dog.appendChild(dw);
+      list.appendChild(dog);
+    }
     var open = shown.filter(function (r) { return r.a.id === openId; })[0];
     if (open) {
       var p = el("div", "panel"), t = el("div", "paneltitle");
