@@ -37,8 +37,10 @@
       "paused": false,
       "check": {
         "drive": "title contains 'DVIR-REPORT-MASTER'",
-        "hubLabel": "Daily DVIR Analysis"
-      }
+        "hubLabel": "Daily DVIR Analysis",
+        "github": "julianchetlange-svg/Daily-DVIR-Analysis"
+      },
+      "repo": "julianchetlange-svg/Daily-DVIR-Analysis"
     },
     {
       "id": "fexa-facility-wo-followup",
