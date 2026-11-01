@@ -79,6 +79,78 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 .run time { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); }
 .empty { padding: 28px 16px; color: var(--ink-2); text-align: center; }
 .note { font-size: 12.5px; color: var(--ink-2); max-width: 75ch; }
+/* Pasture view: one cow per agent. Original cattle, with glasses. Mood follows status. */
+:root { --sky: #e7f0f4; --grass: #d6e9cc; --hide: #ffffff; --spot: #4b3528; --cs: var(--idle); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --sky: #12202a; --grass: #17281e; } }
+:root[data-theme="dark"] { --sky: #12202a; --grass: #17281e; }
+.barrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--panel); }
+.seg button { font: inherit; color: var(--ink); background: none; border: 0; padding: 5px 14px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.pasture { position: relative; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; padding: 0 14px 18px;
+  background: linear-gradient(var(--sky) 0 40px, var(--grass) 40px 100%); }
+.pasture::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 42px; pointer-events: none;
+  background:
+    linear-gradient(#a98457 0 0) 0 12px / 100% 4px no-repeat,
+    linear-gradient(#a98457 0 0) 0 25px / 100% 4px no-repeat,
+    repeating-linear-gradient(90deg, #8a6a43 0 7px, transparent 7px 52px) 10px 4px / 100% 36px no-repeat; }
+.herd { position: relative; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px 10px; padding-top: 56px; }
+.cowcard { position: relative; display: flex; flex-direction: column; align-items: center; gap: 3px; background: none; border: 0; font: inherit; color: inherit; cursor: pointer; padding: 22px 4px 4px; text-align: center; border-radius: 10px; animation: wander 9s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+.cowcard.s-failed, .cowcard.s-new, .cowcard.s-paused { animation: none; }
+.cowcard:hover { z-index: 2; }
+.cowcard:hover .cowsvg, .cowcard:focus-visible .cowsvg { transform: translateY(-3px); }
+.cowcard[aria-expanded="true"] .tag { outline: 2px solid var(--accent); outline-offset: 1px; }
+@keyframes wander { from { transform: translateX(-7px); } to { transform: translateX(7px); } }
+.cowsvg { width: 100%; max-width: 150px; height: auto; display: block; transition: transform .15s; overflow: visible; }
+.tag { display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; font-size: 13px; font-weight: 500; max-width: 100%; overflow-wrap: anywhere; }
+.cowmeta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px 8px; }
+.bubble { position: absolute; top: 0; left: 50%; transform: translate(-50%, 4px); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 2px 9px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s; z-index: 3; }
+.cowcard:hover .bubble, .cowcard:focus-visible .bubble, .cowcard.say .bubble { opacity: 1; transform: translate(-50%, 0); }
+.cowcard.hop .cowsvg { animation: hop .5s ease-out; }
+@keyframes hop { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-14px); } 70% { transform: translateY(0); } 85% { transform: translateY(-4px); } }
+.panel { margin-top: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.paneltitle { padding: 12px 16px 0; font-size: 16px; }
+.panel .detail { border-top: 0; background: none; }
+/* cow parts */
+.cowsvg .hide { fill: var(--hide); stroke: #2b2b2b; stroke-width: 2; }
+.cowsvg .leg { fill: var(--hide); stroke: #2b2b2b; stroke-width: 2; }
+.cowsvg .hoof { fill: var(--spot); }
+.cowsvg .spot { fill: var(--spot); }
+.cowsvg .ear { fill: var(--spot); stroke: #2b2b2b; stroke-width: 1.5; }
+.cowsvg .horn { fill: none; stroke: #d9b45a; stroke-width: 3.5; stroke-linecap: round; }
+.cowsvg .snout { fill: #f6b9c1; stroke: #2b2b2b; stroke-width: 2; }
+.cowsvg .nostril { fill: #2b2b2b; }
+.cowsvg .tail { fill: none; stroke: #2b2b2b; stroke-width: 3; stroke-linecap: round; }
+.cowsvg .collar { fill: var(--cs); stroke: #2b2b2b; stroke-width: 1.5; }
+.cowsvg .bell { fill: #ffe901; stroke: #2b2b2b; stroke-width: 1.5; }
+.cowsvg .shadow { fill: rgba(0, 0, 0, .14); }
+.cowsvg .lens { fill: rgba(255, 255, 255, .7); stroke: #1c1c1c; stroke-width: 2.6; }
+.cowsvg .frame { fill: none; stroke: #1c1c1c; stroke-width: 2.4; stroke-linecap: round; }
+.cowsvg .pupil { fill: #1c1c1c; }
+.cowsvg .xeye, .cowsvg .closed, .cowsvg .mouth, .cowsvg .sweat, .cowsvg .alert, .cowsvg .qmark, .cowsvg .zzz { display: none; fill: none; stroke: #1c1c1c; stroke-width: 2.2; stroke-linecap: round; }
+.cowsvg .sweat { fill: #6ec1e4; stroke: #2b7ea3; stroke-width: 1.2; }
+.cowsvg text { font: 700 20px var(--font-body); stroke: none; }
+.cowsvg .alert { fill: var(--bad); } .cowsvg .qmark { fill: var(--ink-2); } .cowsvg .zzz { fill: var(--ink-2); }
+.s-ok { --cs: var(--ok); } .s-late { --cs: var(--warn); } .s-failed { --cs: var(--bad); } .s-new, .s-paused { --cs: var(--idle); }
+.s-ok .m-ok, .s-new .m-ok, .s-paused .m-ok, .s-late .m-flat, .s-failed .m-frown { display: block; }
+.s-failed .xeye, .s-paused .closed { display: block; }
+.s-failed .pupil, .s-paused .pupil { display: none; }
+.s-late .sweat, .s-failed .alert, .s-new .qmark, .s-paused .zzz { display: block; }
+.cowsvg .head, .cowsvg .tail { transform-box: fill-box; }
+.cowsvg .head { transform-origin: 50% 100%; }
+.cowsvg .tail { transform-origin: 0 0; }
+.s-ok .head { animation: graze 3.2s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.s-ok .tail { animation: swish 1.6s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+.s-late .head { animation: fidget .9s ease-in-out infinite alternate; }
+.s-failed .cowsvg, .cowcard.s-failed .cowsvg { animation: shake .45s linear infinite; }
+.cowcard.s-failed.hop .cowsvg { animation: hop .5s ease-out; }
+@keyframes graze { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(7deg); } }
+@keyframes swish { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+@keyframes fidget { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
+@media (prefers-reduced-motion: reduce) {
+  .cowcard, .cowsvg, .cowsvg .head, .cowsvg .tail { animation: none !important; }
+}
 @media (max-width: 640px) {
   .tiles { grid-template-columns: repeat(2, 1fr); }
   .row { grid-template-columns: 4px minmax(0, 1fr) auto; gap: 4px 10px; }
@@ -102,7 +174,13 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     <button class="tile new" data-f="new" aria-pressed="false"><div class="n" id="n-new">–</div><div class="l">No runs yet</div></button>
   </div>
 
-  <div class="bar" id="showing"></div>
+  <div class="bar barrow">
+    <span id="showing"></span>
+    <div class="seg" role="group" aria-label="View">
+      <button type="button" id="v-pasture" aria-pressed="true">Pasture</button>
+      <button type="button" id="v-list" aria-pressed="false">List</button>
+    </div>
+  </div>
   <div class="bar" id="warnings" hidden></div>
   <div class="list" id="list" aria-live="polite"></div>
 
@@ -111,7 +189,50 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 
 <script>
 (function () {
-  var agents = [], runs = [], inputs = [], meta = {}, filter = null, openId = null, loaded = false;
+  var agents = [], runs = [], inputs = [], meta = {}, filter = null, openId = null, loaded = false, view = "pasture";
+  var PHRASES = {
+    ok: ["All good!", "Moo!", "Chewing on data", "Grazing along"],
+    late: ["Running late...", "Moo? Anyone?", "Where's my report?"],
+    failed: ["Help!", "Moo-day, moo-day!", "Something broke"],
+    new: ["Hello?", "First day on the farm"],
+    paused: ["Zzz...", "Napping"]
+  };
+  var COW = '<svg class="cowsvg s-{s}" viewBox="0 0 150 120" aria-hidden="true" focusable="false">'
+    + '<ellipse class="shadow" cx="78" cy="108" rx="54" ry="6"/>'
+    + '<path class="tail" d="M128 50 Q144 54 142 80"/>'
+    + '<rect class="leg" x="46" y="76" width="10" height="28" rx="3"/><rect class="leg" x="60" y="78" width="10" height="26" rx="3"/>'
+    + '<rect class="leg" x="102" y="78" width="10" height="26" rx="3"/><rect class="leg" x="116" y="76" width="10" height="28" rx="3"/>'
+    + '<rect class="hoof" x="46" y="98" width="10" height="6" rx="2"/><rect class="hoof" x="60" y="98" width="10" height="6" rx="2"/>'
+    + '<rect class="hoof" x="102" y="98" width="10" height="6" rx="2"/><rect class="hoof" x="116" y="98" width="10" height="6" rx="2"/>'
+    + '<rect class="hide" x="36" y="42" width="96" height="46" rx="22"/>'
+    + '<ellipse class="spot" cx="70" cy="54" rx="11" ry="8"/><ellipse class="spot" cx="106" cy="66" rx="14" ry="9"/><ellipse class="spot" cx="94" cy="49" rx="7" ry="5"/>'
+    + '<rect class="collar" x="36" y="52" width="10" height="26" rx="3"/><circle class="bell" cx="41" cy="80" r="5"/>'
+    + '<g class="head">'
+    + '<ellipse class="ear" cx="9" cy="34" rx="10" ry="5" transform="rotate(-20 9 34)"/><ellipse class="ear" cx="51" cy="34" rx="10" ry="5" transform="rotate(20 51 34)"/>'
+    + '<path class="horn" d="M20 27 Q17 16 24 14 M40 27 Q43 16 36 14"/>'
+    + '<rect class="hide" x="10" y="26" width="40" height="42" rx="16"/>'
+    + '<ellipse class="snout" cx="30" cy="59" rx="14" ry="9"/><circle class="nostril" cx="25" cy="58" r="1.7"/><circle class="nostril" cx="35" cy="58" r="1.7"/>'
+    + '<path class="mouth m-ok" d="M25 64 Q30 68 35 64"/><path class="mouth m-flat" d="M25 65 L35 65"/><path class="mouth m-frown" d="M25 67 Q30 62 35 67"/>'
+    + '<circle class="pupil" cx="21" cy="44" r="2.4"/><circle class="pupil" cx="39" cy="44" r="2.4"/>'
+    + '<path class="xeye" d="M17.5 40.5 L24.5 47.5 M24.5 40.5 L17.5 47.5 M35.5 40.5 L42.5 47.5 M42.5 40.5 L35.5 47.5"/>'
+    + '<path class="closed" d="M16 45 Q21 49 26 45 M34 45 Q39 49 44 45"/>'
+    + '<circle class="lens" cx="21" cy="44" r="8.5"/><circle class="lens" cx="39" cy="44" r="8.5"/>'
+    + '<path class="frame" d="M29.5 44 L30.5 44 M12.5 44 L8 40 M47.5 44 L52 40"/>'
+    + '<path class="sweat" d="M56 30 Q52 37 56 40 Q60 37 56 30Z"/>'
+    + '<text class="alert" x="30" y="12" text-anchor="middle">!</text><text class="qmark" x="30" y="12" text-anchor="middle">?</text>'
+    + '<text class="zzz" x="58" y="22">z</text>'
+    + '</g></svg>';
+  function cowSvg(status) {
+    var w = document.createElement("div");
+    w.innerHTML = COW.replace("{s}", status);
+    return w.firstChild;
+  }
+  function pick(s) { var p = PHRASES[s] || PHRASES.ok; return p[Math.floor(Math.random() * p.length)]; }
+  function moo(card, s) {
+    var b = card.querySelector(".bubble"); if (b) b.textContent = s === "ok" ? "Moo!" : pick(s);
+    card.classList.add("hop", "say");
+    setTimeout(function () { card.classList.remove("hop", "say"); }, 1700);
+  }
   var $ = function (id) { return document.getElementById(id); };
   var GRACE = 1.5, TZ = "America/Chicago";
 
@@ -193,14 +314,20 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     var order = { failed: 0, late: 1, new: 2, ok: 3, paused: 4 };
     rows.sort(function (x, y) { return order[x.h.s] - order[y.h.s] || x.a.name.localeCompare(y.a.name); });
     var shown = filter ? rows.filter(function (r) { return r.h.s === filter; }) : rows;
-    $("showing").textContent = loaded ? (filter ? "Showing " + shown.length + " of " + rows.length + " agents" : rows.length + " agents") : "";
+    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble"
+      : counts.late ? counts.late + " running late" : "the herd is grazing happily";
+    $("showing").textContent = loaded ? (filter ? "Showing " + shown.length + " of " + rows.length + " agents" : rows.length + (view === "pasture" ? " head of cattle" : " agents")) + (view === "pasture" ? " · " + mood : "") : "";
+    $("v-pasture").setAttribute("aria-pressed", String(view === "pasture"));
+    $("v-list").setAttribute("aria-pressed", String(view === "list"));
     renderStamp();
 
     var list = $("list"); list.textContent = "";
+    list.className = view === "pasture" ? "pasture" : "list";
     if (!shown.length) {
       list.appendChild(el("div", "empty", loaded ? (rows.length ? "No agents match this filter." : "No agents yet.") : "Loading…"));
       return;
     }
+    if (view === "pasture") { renderPasture(list, shown, now); return; }
     shown.forEach(function (r) {
       var a = r.a, h = r.h, item = el("div", "item");
       var row = el("button", "row"); row.type = "button"; row.setAttribute("aria-expanded", String(openId === a.id));
@@ -222,6 +349,35 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
       if (openId === a.id) item.appendChild(detail(a));
       list.appendChild(item);
     });
+  }
+
+  function renderPasture(list, shown, now) {
+    var herd = el("div", "herd");
+    shown.forEach(function (r, i) {
+      var a = r.a, h = r.h;
+      var c = el("button", "cowcard s-" + h.s); c.type = "button"; c.dataset.id = a.id;
+      c.setAttribute("aria-expanded", String(openId === a.id));
+      c.style.setProperty("--d", "-" + ((i * 0.7) % 4).toFixed(1) + "s");
+      c.appendChild(el("span", "bubble", pick(h.s)));
+      c.appendChild(cowSvg(h.s));
+      c.appendChild(el("span", "tag", a.name));
+      var meta2 = el("span", "cowmeta");
+      meta2.appendChild(el("span", "pill " + h.s, h.label));
+      meta2.appendChild(el("span", "sub", h.last ? rel(now - h.last.at) : "never"));
+      c.appendChild(meta2);
+      c.addEventListener("click", function () {
+        openId = openId === a.id ? null : a.id; render();
+        var n = document.querySelector('.cowcard[data-id="' + a.id + '"]'); if (n) moo(n, h.s);
+      });
+      herd.appendChild(c);
+    });
+    list.appendChild(herd);
+    var open = shown.filter(function (r) { return r.a.id === openId; })[0];
+    if (open) {
+      var p = el("div", "panel"), t = el("div", "paneltitle");
+      t.appendChild(el("strong", null, open.a.name)); p.appendChild(t); p.appendChild(detail(open.a));
+      list.appendChild(p);
+    }
   }
 
   function detail(a) {
@@ -259,6 +415,9 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
   document.querySelectorAll(".tile").forEach(function (t) {
     t.addEventListener("click", function () { filter = filter === t.dataset.f ? null : t.dataset.f; render(); });
   });
+
+  $("v-pasture").addEventListener("click", function () { view = "pasture"; render(); });
+  $("v-list").addEventListener("click", function () { view = "list"; render(); });
 
   function load() {
     fetch("data.json?t=" + Date.now(), { cache: "no-store" })
