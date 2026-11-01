@@ -1,0 +1,33 @@
+{
+  "generatedAt": 1793555358000,
+  "agents": [
+    {"id": "fexa-daily-fleet-asset", "name": "Daily fleet asset report", "platform": "Claude", "cadenceHours": 24, "source": "GitHub", "repo": "julianchetlange-svg/Current-Fleet-Assets", "note": "Builds the Current-Fleet-Assets page from the Fexa email", "paused": false, "window": {"tz": "America/Chicago", "start": [2, 30], "deadline": [3, 30], "label": "2:30–3:00 AM CT"}, "check": {"github": "julianchetlange-svg/Current-Fleet-Assets", "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""}},
+    {"id": "dvir-report-master", "name": "DVIR master report", "platform": "ChatGPT", "cadenceHours": 24, "source": "Drive", "note": "Daily DVIR Analysis, per the report hub", "paused": false, "check": {"drive": "title contains 'DVIR-REPORT-MASTER'", "hubLabel": "Daily DVIR Analysis"}},
+    {"id": "fexa-facility-wo-followup", "name": "Facilities WO Follow-Up (weekly)", "platform": "Claude", "cadenceHours": 168, "source": "GitHub", "repo": "julianchetlange-svg/Facilities-WO-Follow-Up-Report", "note": "Weekly facilities work order report, updated Mondays", "paused": false, "check": {"github": "julianchetlange-svg/Facilities-WO-Follow-Up-Report"}},
+    {"id": "fexa-open-wo-fleet", "name": "Fleet WO Follow-Up (weekly)", "platform": "Claude", "cadenceHours": 168, "source": "GitHub", "repo": "julianchetlange-svg/Fleet-WO-Follow-Up", "note": "Picks up the Fexa open WO email Mondays and updates the Fleet WO Follow-Up page", "paused": false, "check": {"github": "julianchetlange-svg/Fleet-WO-Follow-Up"}},
+    {"id": "fleet-out-of-service", "name": "Fleet Out of Service Tracking", "platform": "ChatGPT", "cadenceHours": 24, "source": "GitHub", "repo": "julianchetlange-svg/Fleet-Out-of-Service-Tracking", "note": "ChatGPT picks up the Fexa Out Of Service email on weekdays and processes it", "paused": false, "skipDays": [0, 6], "check": {"github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking", "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""}},
+    {"id": "mtd-fuel-trends", "name": "MTD Fuel Trends", "platform": "ChatGPT + Claude", "cadenceHours": 168, "source": "GitHub", "repo": "julianchetlange-svg/MTD-Fuel-Trends", "note": "Thursday run for the prior week. ChatGPT and Apps Script process WEX, Fill-Rite and Suncoast; Claude loads GitHub and emails the summary", "paused": false, "check": {"github": "julianchetlange-svg/MTD-Fuel-Trends", "gmailSent": "subject:\"Fuel Dashboard Updated\" in:sent"}},
+    {"id": "pm-compliance-dashboard", "name": "PM Compliance Dashboard", "platform": "ChatGPT + Claude", "cadenceHours": 168, "source": "GitHub", "repo": "julianchetlange-svg/PM-Compliance-Dashboard", "note": "ChatGPT processes the Gmail report, Claude loads the summary to GitHub", "paused": false, "check": {"github": "julianchetlange-svg/PM-Compliance-Dashboard"}},
+    {"id": "registration-inspection-report", "name": "Fleet Registration and Inspection", "platform": "Claude", "cadenceHours": 168, "source": "GitHub", "repo": "julianchetlange-svg/Fleet-Registration-and-Inspection", "note": "Takes the Gmail report, posts to GitHub, then emails the team when ready", "paused": false, "check": {"github": "julianchetlange-svg/Fleet-Registration-and-Inspection", "gmailSent": "subject:\"Registration & Inspection Report\" in:sent"}},
+    {"id": "report-hub-date-updater", "name": "Report hub date updater", "platform": "Claude", "cadenceHours": 24, "source": "GitHub", "repo": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page", "note": "Scans reports and updates dates on the landing page", "paused": false, "check": {"github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"}}
+  ],
+  "runs": [
+    {"agentId": "dvir-report-master", "at": 1792592500000, "status": "ok", "summary": "DVIR-REPORT-MASTER-2026-10-20.xlsx saved to Drive"},
+    {"agentId": "dvir-report-master", "at": 1793466000000, "status": "ok", "summary": "Report hub lists Daily DVIR Analysis as updated 10/31 (date only, time approximate)"},
+    {"agentId": "fexa-daily-fleet-asset", "at": 1793520023000, "status": "ok", "summary": "Daily Fleet Asset Report.xls attached"},
+    {"agentId": "fexa-daily-fleet-asset", "at": 1793524261000, "status": "ok", "summary": "Page updated on GitHub (push 09:11 UTC)"},
+    {"agentId": "fexa-facility-wo-followup", "at": 1793028566000, "status": "ok", "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 10/26, 10:29 AM CT)"},
+    {"agentId": "fexa-open-wo-fleet", "at": 1793028850000, "status": "ok", "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 10/26, 10:34 AM CT)"},
+    {"agentId": "fleet-out-of-service", "at": 1793352437000, "status": "ok", "summary": "Page updated on GitHub (push Fri 10/30, 4:27 AM CT) from the 4:00 AM Fexa email"},
+    {"agentId": "mtd-fuel-trends", "at": 1793279294000, "status": "warn", "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."},
+    {"agentId": "pm-compliance-dashboard", "at": 1793026766000, "status": "ok", "summary": "Page updated on GitHub (push Mon 10/26, 9:59 AM CT)"},
+    {"agentId": "registration-inspection-report", "at": 1793187489000, "status": "ok", "summary": "Weekly update sent for review"},
+    {"agentId": "registration-inspection-report", "at": 1793199578000, "status": "ok", "summary": "Page updated on GitHub (push Wed 10/28, 9:59 AM CT)"},
+    {"agentId": "report-hub-date-updater", "at": 1793447346000, "status": "ok", "summary": "Landing page updated on GitHub (push 11:49 UTC)"}
+  ],
+  "inputs": [
+    {"id": "mtd-wex", "agentId": "mtd-fuel-trends", "name": "WEX fuel card report", "lastAt": 1793458843000, "maxQuietHours": 72, "gmail": "from:onlineservices@wexinc.com"},
+    {"id": "mtd-fill-rite", "agentId": "mtd-fuel-trends", "name": "Fill-Rite daily report", "lastAt": 1793487913000, "maxQuietHours": 36, "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""},
+    {"id": "mtd-suncoast", "agentId": "mtd-fuel-trends", "name": "Suncoast price quote", "lastAt": 1793408147000, "maxQuietHours": 72, "gmail": "from:pricing@suncoastresources.com"}
+  ]
+}

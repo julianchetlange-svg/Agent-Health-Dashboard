@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* McCoy's brand: green #0d5540 header band carrying the logo, yellow #ffe901 as the dark-mode accent. Layout: summary tiles, then one row per agent with a 14-run history strip. */
+:root {
+  --brand: #0d5540; --hl: #ffe901;
+  --bg: #f2f5f1; --panel: #ffffff; --ink: #14221b; --ink-2: #55655b; --line: #d8e0d9;
+  --accent: #0d5540; --on-accent: #ffffff;
+  --ok: #1f8a5b; --warn: #b7791f; --bad: #c0392b; --idle: #8a93a3;
+  --ok-bg: #e4f4ec; --warn-bg: #fbf0d9; --bad-bg: #fbe5e2; --idle-bg: #eceef2;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1713; --panel: #16211b; --ink: #e8efe9; --ink-2: #9db0a5; --line: #2a3a31;
+    --accent: #ffe901; --on-accent: #1a1a00;
+    --ok: #4cc38a; --warn: #e0a84a; --bad: #ef7a6c; --idle: #7d8798;
+    --ok-bg: #16322a; --warn-bg: #3a2e16; --bad-bg: #3d1f1c; --idle-bg: #232c38;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1713; --panel: #16211b; --ink: #e8efe9; --ink-2: #9db0a5; --line: #2a3a31;
+  --accent: #ffe901; --on-accent: #1a1a00;
+  --ok: #4cc38a; --warn: #e0a84a; --bad: #ef7a6c; --idle: #7d8798;
+  --ok-bg: #16322a; --warn-bg: #3a2e16; --bad-bg: #3d1f1c; --idle-bg: #232c38;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 20px 16px 48px; display: flex; flex-direction: column; gap: 16px; }
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; background: var(--brand); border-radius: 8px; padding: 10px 16px; }
+.brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.logo { height: 44px; width: auto; display: block; border-radius: 3px; }
+h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: var(--hl); }
+.stamp { font-family: var(--font-mono); font-size: 12px; color: #cfe3da; }
+.stamp.stale { color: var(--hl); }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tile { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; border-left-width: 4px; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.tile:hover { border-color: var(--accent); }
+.tile[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 1px; }
+.tile .n { font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; color: var(--ink); }
+.tile .l { font-size: 12px; color: var(--ink-2); text-transform: uppercase; letter-spacing: .04em; }
+.tile.ok { border-left-color: var(--ok); } .tile.late { border-left-color: var(--warn); }
+.tile.failed { border-left-color: var(--bad); } .tile.new { border-left-color: var(--idle); }
+.bar { color: var(--ink-2); font-size: 13px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.list { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.row { display: grid; grid-template-columns: 4px minmax(0, 1.6fr) 110px minmax(0, 1fr) 150px; gap: 0 14px; align-items: center; padding: 12px 14px 12px 0; border: 0; border-top: 1px solid var(--line); cursor: pointer; width: 100%; text-align: left; background: none; font: inherit; color: inherit; }
+.list > .item:first-child .row { border-top: 0; }
+.row:hover { background: var(--bg); }
+.stripe { align-self: stretch; margin: -12px 0; }
+.stripe.ok { background: var(--ok); } .stripe.late { background: var(--warn); }
+.stripe.failed { background: var(--bad); } .stripe.new, .stripe.paused { background: var(--idle); }
+.name { font-weight: 500; overflow-wrap: anywhere; }
+.sub { font-size: 12px; color: var(--ink-2); }
+.pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 2px 9px; border-radius: 999px; }
+.pill.ok { background: var(--ok-bg); color: var(--ok); } .pill.late { background: var(--warn-bg); color: var(--warn); }
+.pill.failed { background: var(--bad-bg); color: var(--bad); } .pill.new, .pill.paused { background: var(--idle-bg); color: var(--idle); }
+.when { font-family: var(--font-mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.dots { display: flex; gap: 3px; justify-content: flex-end; }
+.dot { width: 9px; height: 16px; border-radius: 2px; background: var(--line); }
+.dot.ok { background: var(--ok); } .dot.failed { background: var(--bad); } .dot.warn { background: var(--warn); }
+.detail { padding: 14px 16px 16px 18px; background: var(--bg); border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+.detail h3 { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-2); font-weight: 600; }
+.runs { display: flex; flex-direction: column; gap: 4px; max-width: 70ch; }
+.run { display: grid; grid-template-columns: 8px 150px minmax(0, 1fr); gap: 10px; align-items: baseline; font-size: 13.5px; }
+.run i { width: 8px; height: 8px; border-radius: 50%; display: block; background: var(--idle); }
+.run i.ok { background: var(--ok); } .run i.failed { background: var(--bad); } .run i.warn { background: var(--warn); }
+.run time { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); }
+.empty { padding: 28px 16px; color: var(--ink-2); text-align: center; }
+.note { font-size: 12.5px; color: var(--ink-2); max-width: 75ch; }
+@media (max-width: 640px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .row { grid-template-columns: 4px minmax(0, 1fr) auto; gap: 4px 10px; }
+  .row .cadence, .row .dots { grid-column: 2 / 4; justify-content: flex-start; }
+  .run { grid-template-columns: 8px minmax(0, 1fr); } .run time { grid-column: 2; }
+}
+@media (prefers-reduced-motion: no-preference) { .row, .tile { transition: background .15s, border-color .15s; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><img class="logo" src="logo.png" width="122" height="62" alt="McCoy's Building Supply"><h1>Agent Health</h1></div>
+    <span class="stamp" id="stamp">Loading agents…</span>
+  </header>
+
+  <div class="tiles" role="group" aria-label="Filter by status">
+    <button class="tile failed" data-f="failed" aria-pressed="false"><div class="n" id="n-failed">–</div><div class="l">Failed</div></button>
+    <button class="tile late" data-f="late" aria-pressed="false"><div class="n" id="n-late">–</div><div class="l">Late or silent</div></button>
+    <button class="tile ok" data-f="ok" aria-pressed="false"><div class="n" id="n-ok">–</div><div class="l">Healthy</div></button>
+    <button class="tile new" data-f="new" aria-pressed="false"><div class="n" id="n-new">–</div><div class="l">No runs yet</div></button>
+  </div>
+
+  <div class="bar" id="showing"></div>
+  <div class="bar" id="warnings" hidden></div>
+  <div class="list" id="list" aria-live="polite"></div>
+
+  <p class="note">Checked hourly from 6 AM to 6 PM Central. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
+</div>
+
+<script>
+(function () {
+  var agents = [], runs = [], inputs = [], meta = {}, filter = null, openId = null, loaded = false;
+  var $ = function (id) { return document.getElementById(id); };
+  var GRACE = 1.5, TZ = "America/Chicago";
+
+  function rel(ms) {
+    var m = Math.floor(ms / 60000);
+    if (m < 1) return "just now"; if (m < 60) return m + "m ago";
+    var h = Math.floor(m / 60); if (h < 48) return h + "h ago";
+    return Math.floor(h / 24) + "d ago";
+  }
+  function stamp(t) { return new Date(t).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
+  function tzParts(t, tz) {
+    var f = new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric" }), o = {};
+    f.formatToParts(new Date(t)).forEach(function (p) { o[p.type] = Number(p.value); });
+    return o;
+  }
+  function zonedToUtc(y, m, d, h, mi, tz) {
+    var want = Date.UTC(y, m - 1, d, h, mi), g = want;
+    for (var i = 0; i < 2; i++) { var p = tzParts(g, tz); g += want - Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute); }
+    return g;
+  }
+  function missedWindow(w, lastAt, now) {
+    var p = tzParts(now, w.tz);
+    for (var k = 0; k < 2; k++) {
+      var day = new Date(Date.UTC(p.year, p.month - 1, p.day - k)), y = day.getUTCFullYear(), m = day.getUTCMonth() + 1, d = day.getUTCDate();
+      if (zonedToUtc(y, m, d, w.deadline[0], w.deadline[1], w.tz) <= now) return lastAt < zonedToUtc(y, m, d, w.start[0], w.start[1], w.tz);
+    }
+    return false;
+  }
+  function activeHours(from, to, skip, tz) {
+    var h = 0, step = 3600000, fmt = new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short" });
+    for (var t = from; t < to; t += step) {
+      var n = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(fmt.format(new Date(t)));
+      if (skip.indexOf(n) === -1) h += Math.min(step, to - t) / step;
+    }
+    return h;
+  }
+  function inputsFor(id) {
+    return inputs.filter(function (x) { return x.agentId === id; }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+  }
+  function isQuiet(x, now) { return x.lastAt ? now - x.lastAt > x.maxQuietHours * 3600000 : true; }
+  function runsFor(id) {
+    return runs.filter(function (r) { return r.agentId === id; }).sort(function (a, b) { return b.at - a.at; });
+  }
+  function health(a) {
+    var rs = runsFor(a.id), now = Date.now();
+    if (a.paused) return { s: "paused", label: "Paused", last: rs[0] };
+    if (!rs.length) return { s: "new", label: "No runs yet", last: null };
+    var last = rs[0];
+    if (last.status === "failed") return { s: "failed", label: "Failed", last: last };
+    if (inputsFor(a.id).some(function (x) { return isQuiet(x, now); })) return { s: "late", label: "Input quiet", last: last };
+    var late = a.window ? missedWindow(a.window, last.at, now)
+      : a.skipDays ? activeHours(last.at, now, a.skipDays, TZ) > a.cadenceHours * GRACE
+      : now - last.at > a.cadenceHours * 3600000 * GRACE;
+    if (late) return { s: "late", label: "Late", last: last };
+    return { s: "ok", label: "Healthy", last: last };
+  }
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function runClass(s) { return s === "failed" ? "failed" : s === "warn" ? "warn" : "ok"; }
+
+  function renderStamp() {
+    var s = $("stamp");
+    if (!loaded) { s.textContent = "Loading agents…"; return; }
+    var now = Date.now(), age = now - meta.generatedAt, hr = tzParts(now, TZ).hour;
+    var stale = hr >= 7 && hr < 19 && age > 3 * 3600000;
+    s.textContent = "Last check " + rel(age) + (stale ? " · hourly check may be down" : "");
+    s.className = "stamp" + (stale ? " stale" : "");
+    s.title = new Date(meta.generatedAt).toLocaleString();
+    var w = $("warnings"), ws = meta.warnings || [];
+    w.hidden = !ws.length; w.textContent = ws.length ? "Could not read: " + ws.join("; ") : "";
+  }
+
+  function render() {
+    var now = Date.now(), counts = { failed: 0, late: 0, ok: 0, new: 0 };
+    var rows = agents.map(function (a) { return { a: a, h: health(a) }; });
+    rows.forEach(function (r) { if (counts[r.h.s] != null) counts[r.h.s]++; });
+    ["failed", "late", "ok", "new"].forEach(function (k) { $("n-" + k).textContent = loaded ? counts[k] : "–"; });
+    document.querySelectorAll(".tile").forEach(function (t) { t.setAttribute("aria-pressed", String(t.dataset.f === filter)); });
+    var order = { failed: 0, late: 1, new: 2, ok: 3, paused: 4 };
+    rows.sort(function (x, y) { return order[x.h.s] - order[y.h.s] || x.a.name.localeCompare(y.a.name); });
+    var shown = filter ? rows.filter(function (r) { return r.h.s === filter; }) : rows;
+    $("showing").textContent = loaded ? (filter ? "Showing " + shown.length + " of " + rows.length + " agents" : rows.length + " agents") : "";
+    renderStamp();
+
+    var list = $("list"); list.textContent = "";
+    if (!shown.length) {
+      list.appendChild(el("div", "empty", loaded ? (rows.length ? "No agents match this filter." : "No agents yet.") : "Loading…"));
+      return;
+    }
+    shown.forEach(function (r) {
+      var a = r.a, h = r.h, item = el("div", "item");
+      var row = el("button", "row"); row.type = "button"; row.setAttribute("aria-expanded", String(openId === a.id));
+      row.appendChild(el("span", "stripe " + h.s));
+      var nm = el("div"); nm.appendChild(el("div", "name", a.name));
+      nm.appendChild(el("div", "sub", a.platform + " · " + (a.source || "Manual") + (a.note ? " · " + a.note : "")));
+      row.appendChild(nm);
+      var st = el("div"); st.appendChild(el("span", "pill " + h.s, h.label)); row.appendChild(st);
+      var cad = el("div", "cadence");
+      cad.appendChild(el("div", "when", h.last ? rel(now - h.last.at) : "never"));
+      cad.appendChild(el("div", "sub", a.window ? "expected " + a.window.label : a.skipDays ? "expected weekdays only" : "expected every " + (a.cadenceHours >= 168 ? "7d" : a.cadenceHours >= 24 ? (a.cadenceHours / 24) + "d" : a.cadenceHours + "h")));
+      row.appendChild(cad);
+      var dots = el("div", "dots"), hist = runsFor(a.id).slice(0, 14).reverse();
+      for (var i = hist.length; i < 14; i++) dots.appendChild(el("span", "dot"));
+      hist.forEach(function (x) { var d = el("span", "dot " + runClass(x.status)); d.title = stamp(x.at) + " · " + x.status; dots.appendChild(d); });
+      row.appendChild(dots);
+      row.addEventListener("click", function () { openId = openId === a.id ? null : a.id; render(); });
+      item.appendChild(row);
+      if (openId === a.id) item.appendChild(detail(a));
+      list.appendChild(item);
+    });
+  }
+
+  function detail(a) {
+    var d = el("div", "detail");
+    d.appendChild(el("h3", null, "Recent runs"));
+    var box = el("div", "runs"), rs = runsFor(a.id).slice(0, 10);
+    if (!rs.length) box.appendChild(el("div", "sub", "No runs recorded yet."));
+    rs.forEach(function (x) {
+      var r = el("div", "run"); r.appendChild(el("i", runClass(x.status)));
+      r.appendChild(el("time", null, stamp(x.at))); r.appendChild(el("span", null, x.summary || x.status));
+      box.appendChild(r);
+    });
+    d.appendChild(box);
+    var ins = inputsFor(a.id);
+    if (ins.length) {
+      d.appendChild(el("h3", null, "Inputs"));
+      var ib = el("div", "runs");
+      ins.forEach(function (x) {
+        var r = el("div", "run"), q = isQuiet(x, Date.now());
+        r.appendChild(el("i", q ? "warn" : "ok"));
+        r.appendChild(el("time", null, x.lastAt ? stamp(x.lastAt) : "none yet"));
+        r.appendChild(el("span", null, x.name + " · " + (x.lastAt ? rel(Date.now() - x.lastAt) : "never received") + " · limit " + x.maxQuietHours + "h" + (q ? " · quiet" : "")));
+        ib.appendChild(r);
+      });
+      d.appendChild(ib);
+    }
+    if (a.repo) {
+      var p = el("div", "sub"), link = el("a", null, a.repo);
+      link.href = "https://github.com/" + a.repo; link.rel = "noopener";
+      p.appendChild(document.createTextNode("Repo: ")); p.appendChild(link); d.appendChild(p);
+    }
+    return d;
+  }
+
+  document.querySelectorAll(".tile").forEach(function (t) {
+    t.addEventListener("click", function () { filter = filter === t.dataset.f ? null : t.dataset.f; render(); });
+  });
+
+  function load() {
+    fetch("data.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { meta = d; agents = d.agents || []; runs = d.runs || []; inputs = d.inputs || []; loaded = true; render(); })
+      .catch(function () { if (!loaded) $("stamp").textContent = "Could not load data.json"; });
+  }
+  render();
+  load();
+  setInterval(load, 300000);
+  setInterval(render, 60000);
+})();
+</script>
+</body>
+</html>
