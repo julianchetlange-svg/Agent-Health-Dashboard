@@ -15,7 +15,8 @@ Runs hourly from 6 AM to 6 PM Central. Each check finishes with a commit and pus
 ## Steps
 
 1. Read `data.json`.
-2. For each agent with `check.github`: get the repo's last push time (`pushed_at`). If it is newer than the agent's newest run, add a run with `status: "ok"` and a summary such as "Page updated on GitHub (push Mon 10/26, 10:34 AM CT)". Use Central time in summaries.
+2. For each agent with `check.github`: get the repo's last commit time. Do not use the GitHub API or `gh` for this (the scheduled session only has API access to this dashboard repo). Instead read it with a light clone into the scratchpad, which works for any public repo:
+   `git clone -q --depth 1 --filter=blob:none --no-checkout https://github.com/<owner>/<repo> <scratch>/<repo>` then `git -C <scratch>/<repo> log -1 --format='%ct %s'` (`%ct` is the commit time in epoch seconds; multiply by 1000). If a clone fails (for example a private repo), treat that repo as unreadable under the warnings rule. If the commit time is newer than the agent's newest run, add a run with `status: "ok"` and a summary such as "Page updated on GitHub (push Mon 10/26, 10:34 AM CT)". Use Central time in summaries.
 3. For each agent with `check.gmailSent`: search Gmail for the newest matching sent message. If it is newer than the agent's newest run of that kind, add a run noting the email was sent. Flag in the summary if the email went out before the GitHub push (the page may not be final yet).
 4. For each agent with `check.drive`: find the newest matching Drive file. If newer than the newest run, add a run.
 5. For each agent with `check.hubLabel`: open the report hub (`https://julianchetlange-svg.github.io/Store-Dev-Facility-Fleet-Landing-Page/`) and read the date shown for that report. This gives a date only, so only add a run when that date is later than the date of the newest run, and say in the summary that the time is approximate.

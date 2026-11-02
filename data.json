@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793645184659,
+  "generatedAt": 1793645754919,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 2
+      "runCount": 3
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -56,7 +56,7 @@
       "check": {
         "github": "julianchetlange-svg/Facilities-WO-Follow-Up-Report"
       },
-      "runCount": 1
+      "runCount": 2
     },
     {
       "id": "fexa-open-wo-fleet",
@@ -70,7 +70,7 @@
       "check": {
         "github": "julianchetlange-svg/Fleet-WO-Follow-Up"
       },
-      "runCount": 1
+      "runCount": 2
     },
     {
       "id": "fleet-out-of-service",
@@ -118,7 +118,7 @@
       "check": {
         "github": "julianchetlange-svg/PM-Compliance-Dashboard"
       },
-      "runCount": 1
+      "runCount": 2
     },
     {
       "id": "registration-inspection-report",
@@ -147,7 +147,7 @@
       "check": {
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
       },
-      "runCount": 1
+      "runCount": 2
     }
   ],
   "runs": [
@@ -156,6 +156,54 @@
       "at": 1792592500000,
       "status": "ok",
       "summary": "DVIR-REPORT-MASTER-2026-10-20.xlsx saved to Drive"
+    },
+    {
+      "agentId": "pm-compliance-dashboard",
+      "at": 1793026766000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 10/26, 9:59 AM CT)"
+    },
+    {
+      "agentId": "fexa-facility-wo-followup",
+      "at": 1793028566000,
+      "status": "ok",
+      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 10/26, 10:29 AM CT)"
+    },
+    {
+      "agentId": "fexa-open-wo-fleet",
+      "at": 1793028850000,
+      "status": "ok",
+      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 10/26, 10:34 AM CT)"
+    },
+    {
+      "agentId": "registration-inspection-report",
+      "at": 1793187489000,
+      "status": "ok",
+      "summary": "Weekly update sent for review"
+    },
+    {
+      "agentId": "registration-inspection-report",
+      "at": 1793199578000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Wed 10/28, 9:59 AM CT)"
+    },
+    {
+      "agentId": "mtd-fuel-trends",
+      "at": 1793279294000,
+      "status": "warn",
+      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1793352437000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Fri 10/30, 4:27 AM CT) from the 4:00 AM Fexa email"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1793447346000,
+      "status": "ok",
+      "summary": "Landing page updated on GitHub (push 11:49 UTC)"
     },
     {
       "agentId": "dvir-report-master",
@@ -176,52 +224,10 @@
       "summary": "Page updated on GitHub (push 09:11 UTC)"
     },
     {
-      "agentId": "fexa-facility-wo-followup",
-      "at": 1793028566000,
-      "status": "ok",
-      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 10/26, 10:29 AM CT)"
-    },
-    {
-      "agentId": "fexa-open-wo-fleet",
-      "at": 1793028850000,
-      "status": "ok",
-      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 10/26, 10:34 AM CT)"
-    },
-    {
-      "agentId": "fleet-out-of-service",
-      "at": 1793352437000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Fri 10/30, 4:27 AM CT) from the 4:00 AM Fexa email"
-    },
-    {
-      "agentId": "mtd-fuel-trends",
-      "at": 1793279294000,
-      "status": "warn",
-      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
-    },
-    {
-      "agentId": "pm-compliance-dashboard",
-      "at": 1793026766000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 10/26, 9:59 AM CT)"
-    },
-    {
-      "agentId": "registration-inspection-report",
-      "at": 1793187489000,
-      "status": "ok",
-      "summary": "Weekly update sent for review"
-    },
-    {
-      "agentId": "registration-inspection-report",
-      "at": 1793199578000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Wed 10/28, 9:59 AM CT)"
-    },
-    {
       "agentId": "report-hub-date-updater",
-      "at": 1793447346000,
+      "at": 1793574267000,
       "status": "ok",
-      "summary": "Landing page updated on GitHub (push 11:49 UTC)"
+      "summary": "Landing page updated on GitHub (push Sun 11/1, 5:04 PM CT)"
     },
     {
       "agentId": "fexa-daily-fleet-asset",
@@ -230,10 +236,46 @@
       "summary": "Daily Fleet Asset Report email received (Mon 11/2, 2:00 AM CT)"
     },
     {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1793610724000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/2, 3:12 AM CT)"
+    },
+    {
       "agentId": "fleet-out-of-service",
       "at": 1793613634000,
       "status": "ok",
       "summary": "Fleet Out Of Service Report email received (Mon 11/2, 4:00 AM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1793615541000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/2, 4:32 AM CT) after the 4:00 AM Fexa email"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1793628954000,
+      "status": "ok",
+      "summary": "DVIR dashboard updated on GitHub (push Mon 11/2, 8:15 AM CT)"
+    },
+    {
+      "agentId": "fexa-open-wo-fleet",
+      "at": 1793641987000,
+      "status": "ok",
+      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 11/2, 11:53 AM CT)"
+    },
+    {
+      "agentId": "fexa-facility-wo-followup",
+      "at": 1793642458000,
+      "status": "ok",
+      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 11/2, 12:00 PM CT)"
+    },
+    {
+      "agentId": "pm-compliance-dashboard",
+      "at": 1793644843000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/2, 12:40 PM CT)"
     }
   ],
   "inputs": [
@@ -263,7 +305,7 @@
     }
   ],
   "warnings": [
-    "GitHub repos for the agent pages could not be read this run (no repo access in the scheduled session), so GitHub-based runs were not refreshed. Gmail and Drive were read; the report hub was not checked."
+    "The report hub page could not be opened from the scheduled session (network blocked), so the hub date for Daily DVIR Analysis was not checked. GitHub, Gmail and Drive were read."
   ],
   "laborMinutesPerRun": 30
 }
