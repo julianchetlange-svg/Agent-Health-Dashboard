@@ -12,6 +12,8 @@ Runs hourly from 6 AM to 6 PM Central. Each check finishes with a commit and pus
 - `runs`: one entry per observed run: `{agentId, at (epoch ms), status ("ok" | "warn" | "failed"), summary}`. Keep the newest 30 per agent.
 - `inputs`: email feeds that start an agent: `{id, agentId, name, lastAt, maxQuietHours, gmail}`.
 
+An agent may have `startAt` (epoch ms). Ignore any push, email or file older than `startAt` for that agent, so setup commits and test emails are not counted as runs.
+
 ## Steps
 
 1. Read `data.json`.

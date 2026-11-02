@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793646111362,
+  "generatedAt": 1793659062258,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -162,6 +162,37 @@
         "github": "julianchetlange-svg/Project-Summary-Progress"
       },
       "runCount": 1
+    },
+    {
+      "id": "bms-alert-report",
+      "name": "BMS Alert Report",
+      "platform": "Claude",
+      "cadenceHours": 24,
+      "source": "GitHub",
+      "repo": "julianchetlange-svg/BMS-Alert-Report",
+      "note": "Builds the BMS alert page from the 8:30 AM EnTouch Active Alerts CSV, then emails facilities management",
+      "paused": false,
+      "skipDays": [
+        0
+      ],
+      "startAt": 1793685600000,
+      "window": {
+        "tz": "America/Chicago",
+        "start": [
+          9,
+          0
+        ],
+        "deadline": [
+          10,
+          0
+        ],
+        "label": "9:00 AM CT, Mon\u2013Sat"
+      },
+      "check": {
+        "github": "julianchetlange-svg/BMS-Alert-Report",
+        "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
+      },
+      "runCount": 0
     }
   ],
   "runs": [
@@ -338,6 +369,14 @@
       "lastAt": 1793641367000,
       "maxQuietHours": 192,
       "gmail": "from:donotreply@fexa.io subject:\"Current Budget Year Contingency\""
+    },
+    {
+      "id": "bms-active-alerts",
+      "agentId": "bms-alert-report",
+      "name": "EnTouch Active Alerts CSV",
+      "lastAt": 1793657907000,
+      "maxQuietHours": 50,
+      "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
   ],
   "warnings": [],

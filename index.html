@@ -289,10 +289,12 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     for (var i = 0; i < 2; i++) { var p = tzParts(g, tz); g += want - Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute); }
     return g;
   }
-  function missedWindow(w, lastAt, now) {
-    var p = tzParts(now, w.tz);
-    for (var k = 0; k < 2; k++) {
+  function missedWindow(w, lastAt, now, skip) {
+    var p = tzParts(now, w.tz), seen = 0;
+    for (var k = 0; k < 9 && seen < 2; k++) {
       var day = new Date(Date.UTC(p.year, p.month - 1, p.day - k)), y = day.getUTCFullYear(), m = day.getUTCMonth() + 1, d = day.getUTCDate();
+      if (skip && skip.indexOf(day.getUTCDay()) >= 0) continue;
+      seen++;
       if (zonedToUtc(y, m, d, w.deadline[0], w.deadline[1], w.tz) <= now) return lastAt < zonedToUtc(y, m, d, w.start[0], w.start[1], w.tz);
     }
     return false;
@@ -319,7 +321,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     var last = rs[0];
     if (last.status === "failed") return { s: "failed", label: "Failed", last: last };
     if (inputsFor(a.id).some(function (x) { return isQuiet(x, now); })) return { s: "late", label: "Input quiet", last: last };
-    var late = a.window ? missedWindow(a.window, last.at, now)
+    var late = a.window ? missedWindow(a.window, last.at, now, a.skipDays)
       : a.skipDays ? activeHours(last.at, now, a.skipDays, TZ) > a.cadenceHours * GRACE
       : now - last.at > a.cadenceHours * 3600000 * GRACE;
     if (late) return { s: "late", label: "Late", last: last };
