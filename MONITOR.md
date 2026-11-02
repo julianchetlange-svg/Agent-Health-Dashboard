@@ -24,6 +24,10 @@ Runs hourly from 6 AM to 6 PM Central. Each check finishes with a commit and pus
 8. Set `generatedAt` to the current time in epoch milliseconds.
 9. If anything other than `generatedAt` changed, commit with a message such as `Update status 2026-11-02 08:00 CT` and push to `main`. If nothing else changed, still push the `generatedAt` update only when the last push was more than 3 hours ago, so the page can show the check is alive without filling the history with commits.
 
+## Labor saved
+
+The dashboard shows labor saved as `runCount` (per agent) times `laborMinutesPerRun` (top level, currently 30). `runCount` is cumulative and is not trimmed with the run history. When step 2 to 5 adds a run for an agent on a Central calendar date that agent has no earlier non-failed run for, add 1 to that agent's `runCount`. Several runs on the same day for one agent (for example the email and the page push) count once. Failed runs do not count.
+
 ## Rules
 
 - Never write email contents into `data.json`. Record only the sender, subject, and date or time.

@@ -25,7 +25,8 @@
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "dvir-report-master",
@@ -40,7 +41,8 @@
         "hubLabel": "Daily DVIR Analysis",
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
-      "repo": "julianchetlange-svg/Daily-DVIR-Analysis"
+      "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
+      "runCount": 2
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -53,7 +55,8 @@
       "paused": false,
       "check": {
         "github": "julianchetlange-svg/Facilities-WO-Follow-Up-Report"
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "fexa-open-wo-fleet",
@@ -66,7 +69,8 @@
       "paused": false,
       "check": {
         "github": "julianchetlange-svg/Fleet-WO-Follow-Up"
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "fleet-out-of-service",
@@ -84,7 +88,8 @@
       "check": {
         "github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking",
         "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "mtd-fuel-trends",
@@ -98,7 +103,8 @@
       "check": {
         "github": "julianchetlange-svg/MTD-Fuel-Trends",
         "gmailSent": "subject:\"Fuel Dashboard Updated\" in:sent"
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "pm-compliance-dashboard",
@@ -111,7 +117,8 @@
       "paused": false,
       "check": {
         "github": "julianchetlange-svg/PM-Compliance-Dashboard"
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "registration-inspection-report",
@@ -125,7 +132,8 @@
       "check": {
         "github": "julianchetlange-svg/Fleet-Registration-and-Inspection",
         "gmailSent": "subject:\"Registration & Inspection Report\" in:sent"
-      }
+      },
+      "runCount": 1
     },
     {
       "id": "report-hub-date-updater",
@@ -138,7 +146,8 @@
       "paused": false,
       "check": {
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
-      }
+      },
+      "runCount": 1
     }
   ],
   "runs": [
@@ -243,5 +252,6 @@
   ],
   "warnings": [
     "GitHub repos for the agent pages could not be read this run (no repo access in the scheduled session), so GitHub-based runs were not refreshed. Gmail, Drive and the report hub were read."
-  ]
+  ],
+  "laborMinutesPerRun": 30
 }
