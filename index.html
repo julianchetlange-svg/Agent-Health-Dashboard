@@ -151,7 +151,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 @keyframes swish { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
 @keyframes fidget { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
-/* Roundup dog (modeled on Julian's dog): appears in the field when any agent is late or failed, to round it up. */
+/* Pepe the roundup dog (modeled on Julian's dog): appears in the field when any agent is late or failed, to round it up. */
 .pasture.has-collie { padding-bottom: 78px; }
 .collie { position: absolute; bottom: 6px; left: 4%; width: 112px; pointer-events: none; z-index: 1; animation: patrol 16s linear infinite; }
 .colliewrap { animation: turn 16s linear infinite; }
@@ -212,7 +212,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
   <div class="bar" id="warnings" hidden></div>
   <div class="list" id="list" aria-live="polite"></div>
 
-  <p class="note">Checked at 6 AM, 10:30 AM and 12 PM Central. When an agent is late or failed, the roundup dog patrols the field to round it up. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
+  <p class="note">Checked at 6 AM, 10:30 AM and 12 PM Central. When an agent is late or failed, Pepe the roundup dog patrols the field to round it up. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
 </div>
 
 <script>
@@ -250,7 +250,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     + '<text class="alert" x="30" y="12" text-anchor="middle">!</text><text class="qmark" x="30" y="12" text-anchor="middle">?</text>'
     + '<text class="zzz" x="58" y="22">z</text>'
     + '</g></svg>';
-  var COLLIE = '<svg class="colliesvg" viewBox="0 0 120 70" role="img" aria-label="The roundup dog checking on the herd" focusable="false">'
+  var COLLIE = '<svg class="colliesvg" viewBox="0 0 120 70" role="img" aria-label="Pepe the roundup dog checking on the herd" focusable="false">'
     + '<ellipse class="cshadow" cx="68" cy="64" rx="40" ry="5"/>'
     + '<path class="cfur ctail" d="M94 36 Q112 28 104 14 Q102 24 92 31Z"/>'
     + '<rect class="ctan" x="53" y="42" width="7" height="18" rx="3"/><rect class="ctan" x="63" y="42" width="7" height="18" rx="3"/>'
@@ -366,8 +366,8 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     var order = { failed: 0, late: 1, new: 2, ok: 3, paused: 4 };
     rows.sort(function (x, y) { return order[x.h.s] - order[y.h.s] || x.a.name.localeCompare(y.a.name); });
     var shown = filter ? rows.filter(function (r) { return r.h.s === filter; }) : rows;
-    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble, the roundup dog is on it"
-      : counts.late ? counts.late + " running late" : "the herd is grazing happily";
+    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble, Pepe is on it"
+      : counts.late ? counts.late + " running late, Pepe is on it" : "the herd is grazing happily";
     $("showing").textContent = loaded ? (filter ? "Showing " + shown.length + " of " + rows.length + " agents" : rows.length + (view === "pasture" ? " head of cattle" : " agents")) + (view === "pasture" ? " · " + mood : "") : "";
     $("v-pasture").setAttribute("aria-pressed", String(view === "pasture"));
     $("v-list").setAttribute("aria-pressed", String(view === "list"));
@@ -433,7 +433,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     if (strays) {
       list.classList.add("has-collie");
       var dog = el("div", "collie");
-      dog.appendChild(el("span", "colliesay", strays > 1 ? "Rounding up " + strays + " strays" : "Rounding up 1 stray"));
+      dog.appendChild(el("span", "colliesay", strays > 1 ? "Pepe is rounding up " + strays + " strays" : "Pepe is rounding up 1 stray"));
       var dw = el("div", "colliewrap"); dw.innerHTML = COLLIE; dog.appendChild(dw);
       list.appendChild(dog);
     }
