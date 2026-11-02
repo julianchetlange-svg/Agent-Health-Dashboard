@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793556633930,
+  "generatedAt": 1793621400505,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -237,7 +237,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1793487913000,
+      "lastAt": 1793577913000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -251,7 +251,7 @@
     }
   ],
   "warnings": [
-    "GitHub repos for the agent pages could not be read this run (no repo access in the scheduled session), so GitHub-based runs were not refreshed. Gmail, Drive and the report hub were read."
+    "GitHub repos for the agent pages could not be read this run (no repo access in the scheduled session), so GitHub-based runs were not refreshed. Gmail and Drive were read; the report hub was not checked."
   ],
   "laborMinutesPerRun": 30
 }
