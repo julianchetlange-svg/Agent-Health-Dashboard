@@ -151,7 +151,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 @keyframes swish { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
 @keyframes fidget { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
-/* Border collie: appears in the field when any agent is late or failed, to round it up. */
+/* Roundup dog (modeled on Julian's dog): appears in the field when any agent is late or failed, to round it up. */
 .pasture.has-collie { padding-bottom: 78px; }
 .collie { position: absolute; bottom: 6px; left: 4%; width: 112px; pointer-events: none; z-index: 1; animation: patrol 16s linear infinite; }
 .colliewrap { animation: turn 16s linear infinite; }
@@ -159,6 +159,14 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 .collie .cfur { fill: #25272b; stroke: #111; stroke-width: 1.5; stroke-linejoin: round; }
 .collie .cwhite { fill: #fff; stroke: #111; stroke-width: 1.5; stroke-linejoin: round; }
 .collie .cnose { fill: #111; } .collie .ceye { fill: #fff; } .collie .cpupil { fill: #111; }
+.collie .ctan { fill: #c98a4b; stroke: #111; stroke-width: 1.2; }
+.collie .charn { fill: #e8742b; stroke: #8a3d0e; stroke-width: 1.2; }
+.collie .cring { fill: #b9bfc6; stroke: #555; stroke-width: 1; }
+.collie .cear { fill: #e9a7a0; }
+.collie .ceyed { fill: #141414; }
+.collie .cmouth { fill: #4a1d1d; stroke: #111; stroke-width: 1; }
+.collie .ctail { transform-box: fill-box; transform-origin: 0% 100%; animation: wag .35s ease-in-out infinite alternate; }
+@keyframes wag { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
 .collie .ctongue { fill: #f08a98; stroke: #111; stroke-width: 1; }
 .collie .cshadow { fill: rgba(0, 0, 0, .16); }
 .colliesay { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1px 9px; font-size: 12px; white-space: nowrap; }
@@ -166,7 +174,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 @keyframes turn { 0%, 49.9% { transform: scaleX(-1); } 50%, 99.9% { transform: scaleX(1); } 100% { transform: scaleX(-1); } }
 @keyframes trot { from { transform: translateY(0); } to { transform: translateY(-3px); } }
 @media (prefers-reduced-motion: reduce) {
-  .collie, .colliewrap, .colliesvg { animation: none !important; }
+  .collie, .colliewrap, .colliesvg, .collie .ctail { animation: none !important; }
   .cowcard, .cowsvg, .cowsvg .head, .cowsvg .tail { animation: none !important; }
 }
 @media (max-width: 640px) {
@@ -204,7 +212,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
   <div class="bar" id="warnings" hidden></div>
   <div class="list" id="list" aria-live="polite"></div>
 
-  <p class="note">Checked at 6 AM, 10:30 AM and 12 PM Central. When an agent is late or failed, a border collie patrols the field to round it up. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
+  <p class="note">Checked at 6 AM, 10:30 AM and 12 PM Central. When an agent is late or failed, the roundup dog patrols the field to round it up. An agent is late when it has not reported within 1.5 times its expected interval, or, for agents with a set time window, when no run landed since the window opened and 30 minutes have passed after it closed. Weekday-only agents do not count weekend hours. Failed means the most recent run reported a failure. An agent with inputs shows Input quiet when any of its input emails has been silent longer than its limit.</p>
 </div>
 
 <script>
@@ -242,21 +250,27 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     + '<text class="alert" x="30" y="12" text-anchor="middle">!</text><text class="qmark" x="30" y="12" text-anchor="middle">?</text>'
     + '<text class="zzz" x="58" y="22">z</text>'
     + '</g></svg>';
-  var COLLIE = '<svg class="colliesvg" viewBox="0 0 120 70" role="img" aria-label="Border collie rounding up the herd" focusable="false">'
-    + '<ellipse class="cshadow" cx="62" cy="64" rx="46" ry="5"/>'
-    + '<path class="cfur" d="M92 34 Q112 30 116 46 Q106 40 94 44Z"/><path class="cwhite" d="M110 36 Q116 38 116 46 Q112 42 108 41Z"/>'
-    + '<rect class="cfur" x="36" y="46" width="8" height="16" rx="3"/><rect class="cfur" x="50" y="46" width="8" height="16" rx="3"/>'
-    + '<rect class="cfur" x="80" y="46" width="8" height="16" rx="3"/><rect class="cfur" x="92" y="46" width="8" height="16" rx="3"/>'
-    + '<rect class="cwhite" x="36" y="56" width="8" height="7" rx="3"/><rect class="cwhite" x="50" y="56" width="8" height="7" rx="3"/>'
-    + '<rect class="cwhite" x="80" y="56" width="8" height="7" rx="3"/><rect class="cwhite" x="92" y="56" width="8" height="7" rx="3"/>'
-    + '<ellipse class="cfur" cx="66" cy="38" rx="34" ry="14"/>'
-    + '<path class="cwhite" d="M34 36 Q42 30 44 44 Q44 52 36 50 Q30 46 34 36Z"/>'
-    + '<path class="cfur" d="M26 22 L30 10 L38 20Z"/><path class="cfur" d="M40 20 L48 10 L50 24Z"/>'
-    + '<ellipse class="cfur" cx="36" cy="30" rx="16" ry="14"/>'
-    + '<path class="cwhite" d="M34 18 Q37 20 38 28 L36 40 Q30 40 28 34 Q30 26 34 18Z"/>'
-    + '<ellipse class="cwhite" cx="24" cy="36" rx="9" ry="7"/><ellipse class="cnose" cx="17" cy="34" rx="3.2" ry="2.6"/>'
-    + '<path class="ctongue" d="M20 40 Q22 47 26 42Z"/>'
-    + '<circle class="ceye" cx="30" cy="28" r="3.4"/><circle class="cpupil" cx="29" cy="28" r="1.8"/>'
+  var COLLIE = '<svg class="colliesvg" viewBox="0 0 120 70" role="img" aria-label="The roundup dog checking on the herd" focusable="false">'
+    + '<ellipse class="cshadow" cx="68" cy="64" rx="40" ry="5"/>'
+    + '<path class="cfur ctail" d="M94 36 Q112 28 104 14 Q102 24 92 31Z"/>'
+    + '<rect class="ctan" x="53" y="42" width="7" height="18" rx="3"/><rect class="ctan" x="63" y="42" width="7" height="18" rx="3"/>'
+    + '<rect class="ctan" x="83" y="42" width="7" height="18" rx="3"/><rect class="ctan" x="92" y="42" width="7" height="18" rx="3"/>'
+    + '<rect class="cwhite" x="52" y="57" width="9" height="6" rx="3"/><rect class="cwhite" x="62" y="57" width="9" height="6" rx="3"/>'
+    + '<rect class="cwhite" x="82" y="57" width="9" height="6" rx="3"/><rect class="cwhite" x="91" y="57" width="9" height="6" rx="3"/>'
+    + '<ellipse class="cfur" cx="74" cy="37" rx="26" ry="12"/>'
+    + '<rect class="charn" x="56" y="25" width="10" height="24" rx="4"/><rect class="charn" x="56" y="26" width="30" height="5" rx="2.5"/>'
+    + '<circle class="cring" cx="61" cy="26" r="2.6"/>'
+    + '<path class="cfur" d="M23 21 L10 0 L33 15Z"/><path class="cear" d="M23 18 L13 5 L30 15Z"/>'
+    + '<path class="cfur" d="M39 15 L54 -2 L50 23Z"/><path class="cear" d="M41 15 L52 3 L48 20Z"/>'
+    + '<rect class="charn" x="42" y="28" width="7" height="17" rx="3"/>'
+    + '<circle class="cfur" cx="33" cy="29" r="15"/>'
+    + '<ellipse class="ctan" cx="23" cy="34" rx="4" ry="3"/><ellipse class="ctan" cx="42" cy="34" rx="4" ry="3"/>'
+    + '<ellipse class="ctan" cx="32" cy="38" rx="9.5" ry="7"/>'
+    + '<circle class="ctan" cx="27" cy="21" r="2.3"/><circle class="ctan" cx="38" cy="21" r="2.3"/>'
+    + '<circle class="ceyed" cx="27" cy="27" r="3.8"/><circle class="ceyed" cx="38" cy="27" r="3.8"/>'
+    + '<circle class="ceye" cx="28.2" cy="25.8" r="1.2"/><circle class="ceye" cx="39.2" cy="25.8" r="1.2"/>'
+    + '<path class="cmouth" d="M27 39.5 Q32.5 47.5 38 39.5Z"/><ellipse class="ctongue" cx="32.5" cy="43.5" rx="3" ry="2.2"/>'
+    + '<ellipse class="cnose" cx="32.5" cy="35" rx="3.6" ry="2.7"/>'
     + '</svg>';
   function cowSvg(status) {
     var w = document.createElement("div");
@@ -352,7 +366,7 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     var order = { failed: 0, late: 1, new: 2, ok: 3, paused: 4 };
     rows.sort(function (x, y) { return order[x.h.s] - order[y.h.s] || x.a.name.localeCompare(y.a.name); });
     var shown = filter ? rows.filter(function (r) { return r.h.s === filter; }) : rows;
-    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble, collie on the case"
+    var mood = counts.failed ? counts.failed + (counts.failed > 1 ? " cows" : " cow") + " in trouble, the roundup dog is on it"
       : counts.late ? counts.late + " running late" : "the herd is grazing happily";
     $("showing").textContent = loaded ? (filter ? "Showing " + shown.length + " of " + rows.length + " agents" : rows.length + (view === "pasture" ? " head of cattle" : " agents")) + (view === "pasture" ? " · " + mood : "") : "";
     $("v-pasture").setAttribute("aria-pressed", String(view === "pasture"));
