@@ -162,6 +162,11 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
 .collie .ctan { fill: #c98a4b; stroke: #111; stroke-width: 1.2; }
 .collie .charn { fill: #e8742b; stroke: #8a3d0e; stroke-width: 1.2; }
 .collie .cring { fill: #b9bfc6; stroke: #555; stroke-width: 1; }
+.collie .ctanflat { fill: #c98a4b; }
+.collie .cfold { fill: #3d3d40; stroke: #111; stroke-width: 1; }
+.collie .cchin { fill: #d9d4cc; stroke: #111; stroke-width: 1; }
+.collie .ccollar { fill: #2f4a32; stroke: #111; stroke-width: 1; }
+.collie .ctag { fill: #d8c78a; stroke: #6b5e2e; stroke-width: 1.2; }
 .collie .cear { fill: #e9a7a0; }
 .collie .ceyed { fill: #141414; }
 .collie .cmouth { fill: #4a1d1d; stroke: #111; stroke-width: 1; }
@@ -252,25 +257,28 @@ h1 { font-size: 22px; margin: 0; font-weight: 600; text-wrap: balance; color: va
     + '</g></svg>';
   var COLLIE = '<svg class="colliesvg" viewBox="0 0 120 70" role="img" aria-label="Pepe the roundup dog checking on the herd" focusable="false">'
     + '<ellipse class="cshadow" cx="68" cy="64" rx="40" ry="5"/>'
-    + '<path class="cfur ctail" d="M94 36 Q112 28 104 14 Q102 24 92 31Z"/>'
+    + '<path class="cfur ctail" d="M98 35 Q109 31 107 22 Q103 28 96 30Z"/>'
     + '<rect class="ctan" x="53" y="42" width="7" height="18" rx="3"/><rect class="ctan" x="63" y="42" width="7" height="18" rx="3"/>'
     + '<rect class="ctan" x="83" y="42" width="7" height="18" rx="3"/><rect class="ctan" x="92" y="42" width="7" height="18" rx="3"/>'
     + '<rect class="cwhite" x="52" y="57" width="9" height="6" rx="3"/><rect class="cwhite" x="62" y="57" width="9" height="6" rx="3"/>'
     + '<rect class="cwhite" x="82" y="57" width="9" height="6" rx="3"/><rect class="cwhite" x="91" y="57" width="9" height="6" rx="3"/>'
-    + '<ellipse class="cfur" cx="74" cy="37" rx="26" ry="12"/>'
-    + '<rect class="charn" x="56" y="25" width="10" height="24" rx="4"/><rect class="charn" x="56" y="26" width="30" height="5" rx="2.5"/>'
-    + '<circle class="cring" cx="61" cy="26" r="2.6"/>'
-    + '<path class="cfur" d="M23 21 L10 0 L33 15Z"/><path class="cear" d="M23 18 L13 5 L30 15Z"/>'
+    + '<ellipse class="cfur" cx="75" cy="37" rx="27" ry="13"/>'
+    + '<path class="ctanflat" d="M54 44 Q75 53 97 44 Q75 49 54 44Z"/>'
+    + '<path class="cfur" d="M24 21 L11 2 L33 15Z"/><path class="cear" d="M24 18 L14 6 L30 15Z"/><path class="cfold" d="M11 2 L17 7 L14 10Z"/>'
     + '<path class="cfur" d="M39 15 L54 -2 L50 23Z"/><path class="cear" d="M41 15 L52 3 L48 20Z"/>'
-    + '<rect class="charn" x="42" y="28" width="7" height="17" rx="3"/>'
+    + '<rect class="ccollar" x="41" y="34" width="8" height="12" rx="3"/>'
     + '<circle class="cfur" cx="33" cy="29" r="15"/>'
-    + '<ellipse class="ctan" cx="23" cy="34" rx="4" ry="3"/><ellipse class="ctan" cx="42" cy="34" rx="4" ry="3"/>'
-    + '<ellipse class="ctan" cx="32" cy="38" rx="9.5" ry="7"/>'
-    + '<circle class="ctan" cx="27" cy="21" r="2.3"/><circle class="ctan" cx="38" cy="21" r="2.3"/>'
-    + '<circle class="ceyed" cx="27" cy="27" r="3.8"/><circle class="ceyed" cx="38" cy="27" r="3.8"/>'
-    + '<circle class="ceye" cx="28.2" cy="25.8" r="1.2"/><circle class="ceye" cx="39.2" cy="25.8" r="1.2"/>'
-    + '<path class="cmouth" d="M27 39.5 Q32.5 47.5 38 39.5Z"/><ellipse class="ctongue" cx="32.5" cy="43.5" rx="3" ry="2.2"/>'
-    + '<ellipse class="cnose" cx="32.5" cy="35" rx="3.6" ry="2.7"/>'
+    + '<ellipse class="ctan" cx="23.5" cy="35" rx="4.5" ry="3.5"/><ellipse class="ctan" cx="42.5" cy="35" rx="4.5" ry="3.5"/>'
+    + '<ellipse class="ctan" cx="33" cy="39" rx="8.5" ry="5.5"/>'
+    + '<path class="cfur" d="M30 24 Q33 23 36 24 L36.5 35 L29.5 35Z" stroke="none"/>'
+    + '<ellipse class="cchin" cx="33" cy="42.5" rx="5.5" ry="2.8"/>'
+    + '<circle class="ctan" cx="27" cy="21" r="2.4"/><circle class="ctan" cx="39" cy="21" r="2.4"/>'
+    + '<circle class="ceyed" cx="27" cy="27" r="3.8"/><circle class="ceyed" cx="39" cy="27" r="3.8"/>'
+    + '<circle class="ceye" cx="28.2" cy="25.8" r="1.2"/><circle class="ceye" cx="40.2" cy="25.8" r="1.2"/>'
+    + '<path class="cmouth" d="M29 40 Q33 45 37 40Z"/><ellipse class="ctongue" cx="33" cy="42.6" rx="2.2" ry="1.6"/>'
+    + '<ellipse class="cnose" cx="33" cy="35" rx="3.4" ry="2.6"/>'
+    + '<ellipse class="cwhite" cx="47" cy="49" rx="4.5" ry="5.5"/>'
+    + '<circle class="ctag" cx="44" cy="48" r="3.4"/>'
     + '</svg>';
   function cowSvg(status) {
     var w = document.createElement("div");
