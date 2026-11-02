@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793645807150,
+  "generatedAt": 1793646111362,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -148,6 +148,20 @@
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
       },
       "runCount": 2
+    },
+    {
+      "id": "project-summary-progress",
+      "name": "Project Summary Report (weekly)",
+      "platform": "GitHub Actions + Apps Script",
+      "cadenceHours": 168,
+      "source": "GitHub",
+      "repo": "julianchetlange-svg/Project-Summary-Progress",
+      "note": "Thursday rebuild from the Fexa Project Report - Module (5 AM) and Current Budget Year Contingency (11 AM) emails; publishes by about 11:25 AM CT",
+      "paused": false,
+      "check": {
+        "github": "julianchetlange-svg/Project-Summary-Progress"
+      },
+      "runCount": 1
     }
   ],
   "runs": [
@@ -260,6 +274,12 @@
       "summary": "DVIR dashboard updated on GitHub (push Mon 11/2, 8:15 AM CT)"
     },
     {
+      "agentId": "project-summary-progress",
+      "at": 1793641949000,
+      "status": "ok",
+      "summary": "Report published on GitHub (push Mon 11/2, 11:52 AM CT), first automated run"
+    },
+    {
       "agentId": "fexa-open-wo-fleet",
       "at": 1793641987000,
       "status": "ok",
@@ -302,6 +322,22 @@
       "lastAt": 1793408147000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
+    },
+    {
+      "id": "psp-module",
+      "agentId": "project-summary-progress",
+      "name": "Fexa Project Report - Module",
+      "lastAt": 1793639125000,
+      "maxQuietHours": 192,
+      "gmail": "from:donotreply@fexa.io subject:\"Project Report - Module\""
+    },
+    {
+      "id": "psp-contingency",
+      "agentId": "project-summary-progress",
+      "name": "Fexa Current Budget Year Contingency",
+      "lastAt": 1793641367000,
+      "maxQuietHours": 192,
+      "gmail": "from:donotreply@fexa.io subject:\"Current Budget Year Contingency\""
     }
   ],
   "warnings": [],
