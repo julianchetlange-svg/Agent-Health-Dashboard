@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793723990246,
+  "generatedAt": 1793729832293,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -382,7 +382,7 @@
       "id": "mtd-wex",
       "agentId": "mtd-fuel-trends",
       "name": "WEX fuel card report",
-      "lastAt": 1793458843000,
+      "lastAt": 1793725358000,
       "maxQuietHours": 72,
       "gmail": "from:onlineservices@wexinc.com"
     },
@@ -398,7 +398,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1793670701000,
+      "lastAt": 1793725805000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
