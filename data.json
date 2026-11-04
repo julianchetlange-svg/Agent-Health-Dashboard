@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793729832293,
+  "generatedAt": 1793794530171,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -26,7 +26,7 @@
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
       },
-      "runCount": 3
+      "runCount": 4
     },
     {
       "id": "dvir-report-master",
@@ -89,7 +89,7 @@
         "github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking",
         "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""
       },
-      "runCount": 3
+      "runCount": 4
     },
     {
       "id": "mtd-fuel-trends",
@@ -147,7 +147,7 @@
       "check": {
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
       },
-      "runCount": 3
+      "runCount": 4
     },
     {
       "id": "project-summary-progress",
@@ -197,16 +197,28 @@
   ],
   "runs": [
     {
-      "agentId": "dvir-report-master",
-      "at": 1793714904000,
+      "agentId": "fleet-out-of-service",
+      "at": 1793786430000,
       "status": "ok",
-      "summary": "DVIR dashboard updated on GitHub (push Tue 11/3, 8:08 AM CT)"
+      "summary": "Fleet Out Of Service Report email received (Wed 11/4, 4:00 AM CT)"
     },
     {
-      "agentId": "bms-alert-report",
-      "at": 1793718466000,
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1793783492000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Tue 11/3, 9:07 AM CT)"
+      "summary": "Page updated on GitHub (push Wed 11/4, 3:11 AM CT)"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1793779246000,
+      "status": "ok",
+      "summary": "Daily Fleet Asset Report email received (Wed 11/4, 2:00 AM CT)"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1793747051000,
+      "status": "ok",
+      "summary": "Landing page updated on GitHub (push Tue 11/3, 5:04 PM CT)"
     },
     {
       "agentId": "bms-alert-report",
@@ -215,76 +227,100 @@
       "summary": "\"EnTouch/BMS alerts updated - Tue Nov 3\" email sent (Tue 11/3, 9:07 AM CT), after the page push"
     },
     {
+      "agentId": "bms-alert-report",
+      "at": 1793718466000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Tue 11/3, 9:07 AM CT)"
+    },
+    {
       "agentId": "dvir-report-master",
-      "at": 1792592500000,
+      "at": 1793714904000,
       "status": "ok",
-      "summary": "DVIR-REPORT-MASTER-2026-10-20.xlsx saved to Drive"
-    },
-    {
-      "agentId": "pm-compliance-dashboard",
-      "at": 1793026766000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 10/26, 9:59 AM CT)"
-    },
-    {
-      "agentId": "fexa-facility-wo-followup",
-      "at": 1793028566000,
-      "status": "ok",
-      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 10/26, 10:29 AM CT)"
-    },
-    {
-      "agentId": "fexa-open-wo-fleet",
-      "at": 1793028850000,
-      "status": "ok",
-      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 10/26, 10:34 AM CT)"
-    },
-    {
-      "agentId": "registration-inspection-report",
-      "at": 1793187489000,
-      "status": "ok",
-      "summary": "Weekly update sent for review"
-    },
-    {
-      "agentId": "registration-inspection-report",
-      "at": 1793199578000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Wed 10/28, 9:59 AM CT)"
-    },
-    {
-      "agentId": "mtd-fuel-trends",
-      "at": 1793279294000,
-      "status": "warn",
-      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "DVIR dashboard updated on GitHub (push Tue 11/3, 8:08 AM CT)"
     },
     {
       "agentId": "fleet-out-of-service",
-      "at": 1793352437000,
+      "at": 1793702403000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Fri 10/30, 4:27 AM CT) from the 4:00 AM Fexa email"
+      "summary": "Page updated on GitHub (push Tue 11/3, 4:40 AM CT) after the 4:00 AM Fexa email"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1793700030000,
+      "status": "ok",
+      "summary": "Fleet Out Of Service Report email received (Tue 11/3, 4:00 AM CT)"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1793697064000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Tue 11/3, 3:11 AM CT)"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1793692833000,
+      "status": "ok",
+      "summary": "Daily Fleet Asset Report email received (Tue 11/3, 2:00 AM CT)"
     },
     {
       "agentId": "report-hub-date-updater",
-      "at": 1793447346000,
+      "at": 1793654627000,
       "status": "ok",
-      "summary": "Landing page updated on GitHub (push 11:49 UTC)"
+      "summary": "Landing page updated on GitHub (push Mon 11/2, 3:43 PM CT)"
+    },
+    {
+      "agentId": "pm-compliance-dashboard",
+      "at": 1793644843000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/2, 12:40 PM CT)"
+    },
+    {
+      "agentId": "fexa-facility-wo-followup",
+      "at": 1793642458000,
+      "status": "ok",
+      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 11/2, 12:00 PM CT)"
+    },
+    {
+      "agentId": "fexa-open-wo-fleet",
+      "at": 1793641987000,
+      "status": "ok",
+      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 11/2, 11:53 AM CT)"
+    },
+    {
+      "agentId": "project-summary-progress",
+      "at": 1793641949000,
+      "status": "ok",
+      "summary": "Report published on GitHub (push Mon 11/2, 11:52 AM CT), first automated run"
     },
     {
       "agentId": "dvir-report-master",
-      "at": 1793466000000,
+      "at": 1793628954000,
       "status": "ok",
-      "summary": "Report hub lists Daily DVIR Analysis as updated 10/31 (date only, time approximate)"
+      "summary": "DVIR dashboard updated on GitHub (push Mon 11/2, 8:15 AM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1793615541000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/2, 4:32 AM CT) after the 4:00 AM Fexa email"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1793613634000,
+      "status": "ok",
+      "summary": "Fleet Out Of Service Report email received (Mon 11/2, 4:00 AM CT)"
     },
     {
       "agentId": "fexa-daily-fleet-asset",
-      "at": 1793520023000,
+      "at": 1793610724000,
       "status": "ok",
-      "summary": "Daily Fleet Asset Report.xls attached"
+      "summary": "Page updated on GitHub (push Mon 11/2, 3:12 AM CT)"
     },
     {
       "agentId": "fexa-daily-fleet-asset",
-      "at": 1793524261000,
+      "at": 1793606426000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push 09:11 UTC)"
+      "summary": "Daily Fleet Asset Report email received (Mon 11/2, 2:00 AM CT)"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -294,87 +330,75 @@
     },
     {
       "agentId": "fexa-daily-fleet-asset",
-      "at": 1793606426000,
+      "at": 1793524261000,
       "status": "ok",
-      "summary": "Daily Fleet Asset Report email received (Mon 11/2, 2:00 AM CT)"
+      "summary": "Page updated on GitHub (push 09:11 UTC)"
     },
     {
       "agentId": "fexa-daily-fleet-asset",
-      "at": 1793610724000,
+      "at": 1793520023000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/2, 3:12 AM CT)"
-    },
-    {
-      "agentId": "fleet-out-of-service",
-      "at": 1793613634000,
-      "status": "ok",
-      "summary": "Fleet Out Of Service Report email received (Mon 11/2, 4:00 AM CT)"
-    },
-    {
-      "agentId": "fleet-out-of-service",
-      "at": 1793615541000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/2, 4:32 AM CT) after the 4:00 AM Fexa email"
+      "summary": "Daily Fleet Asset Report.xls attached"
     },
     {
       "agentId": "dvir-report-master",
-      "at": 1793628954000,
+      "at": 1793466000000,
       "status": "ok",
-      "summary": "DVIR dashboard updated on GitHub (push Mon 11/2, 8:15 AM CT)"
-    },
-    {
-      "agentId": "project-summary-progress",
-      "at": 1793641949000,
-      "status": "ok",
-      "summary": "Report published on GitHub (push Mon 11/2, 11:52 AM CT), first automated run"
-    },
-    {
-      "agentId": "fexa-open-wo-fleet",
-      "at": 1793641987000,
-      "status": "ok",
-      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 11/2, 11:53 AM CT)"
-    },
-    {
-      "agentId": "fexa-facility-wo-followup",
-      "at": 1793642458000,
-      "status": "ok",
-      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 11/2, 12:00 PM CT)"
-    },
-    {
-      "agentId": "pm-compliance-dashboard",
-      "at": 1793644843000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/2, 12:40 PM CT)"
+      "summary": "Report hub lists Daily DVIR Analysis as updated 10/31 (date only, time approximate)"
     },
     {
       "agentId": "report-hub-date-updater",
-      "at": 1793654627000,
+      "at": 1793447346000,
       "status": "ok",
-      "summary": "Landing page updated on GitHub (push Mon 11/2, 3:43 PM CT)"
-    },
-    {
-      "agentId": "fexa-daily-fleet-asset",
-      "at": 1793692833000,
-      "status": "ok",
-      "summary": "Daily Fleet Asset Report email received (Tue 11/3, 2:00 AM CT)"
-    },
-    {
-      "agentId": "fexa-daily-fleet-asset",
-      "at": 1793697064000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Tue 11/3, 3:11 AM CT)"
+      "summary": "Landing page updated on GitHub (push 11:49 UTC)"
     },
     {
       "agentId": "fleet-out-of-service",
-      "at": 1793700030000,
+      "at": 1793352437000,
       "status": "ok",
-      "summary": "Fleet Out Of Service Report email received (Tue 11/3, 4:00 AM CT)"
+      "summary": "Page updated on GitHub (push Fri 10/30, 4:27 AM CT) from the 4:00 AM Fexa email"
     },
     {
-      "agentId": "fleet-out-of-service",
-      "at": 1793702403000,
+      "agentId": "mtd-fuel-trends",
+      "at": 1793279294000,
+      "status": "warn",
+      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+    },
+    {
+      "agentId": "registration-inspection-report",
+      "at": 1793199578000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Tue 11/3, 4:40 AM CT) after the 4:00 AM Fexa email"
+      "summary": "Page updated on GitHub (push Wed 10/28, 9:59 AM CT)"
+    },
+    {
+      "agentId": "registration-inspection-report",
+      "at": 1793187489000,
+      "status": "ok",
+      "summary": "Weekly update sent for review"
+    },
+    {
+      "agentId": "fexa-open-wo-fleet",
+      "at": 1793028850000,
+      "status": "ok",
+      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 10/26, 10:34 AM CT)"
+    },
+    {
+      "agentId": "fexa-facility-wo-followup",
+      "at": 1793028566000,
+      "status": "ok",
+      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 10/26, 10:29 AM CT)"
+    },
+    {
+      "agentId": "pm-compliance-dashboard",
+      "at": 1793026766000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 10/26, 9:59 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1792592500000,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-10-20.xlsx saved to Drive"
     }
   ],
   "inputs": [
@@ -390,7 +414,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1793664314000,
+      "lastAt": 1793750720000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -398,7 +422,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1793725805000,
+      "lastAt": 1793757075000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
