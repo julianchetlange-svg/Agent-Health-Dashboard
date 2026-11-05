@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793896701453,
+  "generatedAt": 1793902420157,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -500,7 +500,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1793843474000,
+      "lastAt": 1793898558000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
