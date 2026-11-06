@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1793967621436,
+  "generatedAt": 1793983092970,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,7 +20,7 @@
           3,
           30
         ],
-        "label": "2:30\u20133:00 AM CT"
+        "label": "2:30–3:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 6
+      "runCount": 7
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -161,7 +161,7 @@
       "check": {
         "github": "julianchetlange-svg/Project-Summary-Progress"
       },
-      "runCount": 2
+      "runCount": 3
     },
     {
       "id": "bms-alert-report",
@@ -186,7 +186,7 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon\u2013Sat"
+        "label": "9:00 AM CT, Mon–Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
@@ -470,7 +470,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1793279294000,
       "status": "warn",
-      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "registration-inspection-report",
@@ -513,6 +513,24 @@
       "at": 1793882942000,
       "status": "ok",
       "summary": "Landing page updated on GitHub (push Thu 11/5, 6:49 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1793973596707,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-11-05.csv saved to Drive (Fri 11/6, 7:19 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1793975451000,
+      "status": "ok",
+      "summary": "DVIR dashboard updated on GitHub (push Fri 11/6, 8:30 AM CT)"
+    },
+    {
+      "agentId": "project-summary-progress",
+      "at": 1793978197000,
+      "status": "ok",
+      "summary": "Report updated on GitHub (push Fri 11/6, 9:16 AM CT)"
     }
   ],
   "inputs": [
@@ -520,7 +538,7 @@
       "id": "mtd-wex",
       "agentId": "mtd-fuel-trends",
       "name": "WEX fuel card report",
-      "lastAt": 1793877472000,
+      "lastAt": 1793975685000,
       "maxQuietHours": 72,
       "gmail": "from:onlineservices@wexinc.com"
     },
@@ -552,7 +570,7 @@
       "id": "psp-contingency",
       "agentId": "project-summary-progress",
       "name": "Fexa Current Budget Year Contingency",
-      "lastAt": 1793641367000,
+      "lastAt": 1793969668000,
       "maxQuietHours": 192,
       "gmail": "from:donotreply@fexa.io subject:\"Current Budget Year Contingency\""
     },
@@ -560,7 +578,7 @@
       "id": "bms-active-alerts",
       "agentId": "bms-alert-report",
       "name": "EnTouch Active Alerts CSV",
-      "lastAt": 1793889004000,
+      "lastAt": 1793975403000,
       "maxQuietHours": 50,
       "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
