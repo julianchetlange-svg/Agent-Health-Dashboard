@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794053634615,
+  "generatedAt": 1794069509374,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 7
+      "runCount": 8
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -192,7 +192,7 @@
         "github": "julianchetlange-svg/BMS-Alert-Report",
         "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
       },
-      "runCount": 3
+      "runCount": 4
     }
   ],
   "runs": [
@@ -552,9 +552,33 @@
     },
     {
       "agentId": "fexa-daily-fleet-asset",
+      "at": 1794038423000,
+      "status": "ok",
+      "summary": "Daily Fleet Asset Report email received (Sat 11/7, 2:00 AM CT)"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
       "at": 1794042670000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Sat 11/7, 2:11 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1794057538000,
+      "status": "ok",
+      "summary": "DVIR dashboard updated on GitHub (push Sat 11/7, 7:18 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1794060887867,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-11-06.csv saved to Drive (Sat 11/7, 7:14 AM CT)"
+    },
+    {
+      "agentId": "bms-alert-report",
+      "at": 1794064211000,
+      "status": "ok",
+      "summary": "BMS page updated on GitHub (push Sat 11/7, 9:10 AM CT), backfilled the missing Nov 5 report; \"EnTouch/BMS alerts updated\" email sent 9:10 AM CT, after the page push"
     }
   ],
   "inputs": [
@@ -602,7 +626,7 @@
       "id": "bms-active-alerts",
       "agentId": "bms-alert-report",
       "name": "EnTouch Active Alerts CSV",
-      "lastAt": 1793975403000,
+      "lastAt": 1794061803000,
       "maxQuietHours": 50,
       "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
