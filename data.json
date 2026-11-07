@@ -564,15 +564,15 @@
     },
     {
       "agentId": "dvir-report-master",
-      "at": 1794057538000,
+      "at": 1794057287867,
       "status": "ok",
-      "summary": "DVIR dashboard updated on GitHub (push Sat 11/7, 7:18 AM CT)"
+      "summary": "DVIR-REPORT-MASTER-2026-11-06.csv saved to Drive (Sat 11/7, 7:14 AM CT)"
     },
     {
       "agentId": "dvir-report-master",
-      "at": 1794060887867,
+      "at": 1794057538000,
       "status": "ok",
-      "summary": "DVIR-REPORT-MASTER-2026-11-06.csv saved to Drive (Sat 11/7, 7:14 AM CT)"
+      "summary": "DVIR dashboard updated on GitHub (push Sat 11/7, 7:18 AM CT)"
     },
     {
       "agentId": "bms-alert-report",
