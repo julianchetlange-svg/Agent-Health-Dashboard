@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794069509374,
+  "generatedAt": 1794075229560,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -586,7 +586,7 @@
       "id": "mtd-wex",
       "agentId": "mtd-fuel-trends",
       "name": "WEX fuel card report",
-      "lastAt": 1793975685000,
+      "lastAt": 1794070240000,
       "maxQuietHours": 72,
       "gmail": "from:onlineservices@wexinc.com"
     },
