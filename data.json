@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794075229560,
+  "generatedAt": 1794140051895,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,13 +20,13 @@
           3,
           30
         ],
-        "label": "2:30\u20133:00 AM CT"
+        "label": "2:30–3:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
       },
-      "runCount": 7
+      "runCount": 8
     },
     {
       "id": "dvir-report-master",
@@ -147,7 +147,7 @@
       "check": {
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
       },
-      "runCount": 7
+      "runCount": 8
     },
     {
       "id": "project-summary-progress",
@@ -186,7 +186,7 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon\u2013Sat"
+        "label": "9:00 AM CT, Mon–Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
@@ -236,7 +236,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1793279294000,
       "status": "warn",
-      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "fleet-out-of-service",
@@ -579,6 +579,18 @@
       "at": 1794064211000,
       "status": "ok",
       "summary": "BMS page updated on GitHub (push Sat 11/7, 9:10 AM CT), backfilled the missing Nov 5 report; \"EnTouch/BMS alerts updated\" email sent 9:10 AM CT, after the page push"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1794092661000,
+      "status": "ok",
+      "summary": "Landing page updated on GitHub (push Sat 11/7, 5:04 PM CT)"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1794129063000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Sun 11/8, 3:11 AM CT)"
     }
   ],
   "inputs": [
@@ -594,7 +606,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1794009912000,
+      "lastAt": 1794096311000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
