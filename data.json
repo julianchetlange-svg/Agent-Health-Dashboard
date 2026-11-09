@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794242287318,
+  "generatedAt": 1794248052820,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,7 +20,7 @@
           3,
           30
         ],
-        "label": "2:30–3:00 AM CT"
+        "label": "2:30\u20133:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
@@ -186,7 +186,7 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon–Sat"
+        "label": "9:00 AM CT, Mon\u2013Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
@@ -236,7 +236,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1793279294000,
       "status": "warn",
-      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "fleet-out-of-service",
@@ -663,6 +663,12 @@
       "at": 1794241518000,
       "status": "ok",
       "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 11/9, 10:25 AM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1794243258000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4\u20139 and updated current report"
     }
   ],
   "inputs": [
