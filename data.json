@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794328710002,
+  "generatedAt": 1794334438439,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,7 +20,7 @@
           3,
           30
         ],
-        "label": "2:30–3:00 AM CT"
+        "label": "2:30\u20133:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
@@ -186,7 +186,7 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon–Sat"
+        "label": "9:00 AM CT, Mon\u2013Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
@@ -231,12 +231,6 @@
       "at": 1793199578000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Wed 10/28, 9:59 AM CT)"
-    },
-    {
-      "agentId": "mtd-fuel-trends",
-      "at": 1793279294000,
-      "status": "warn",
-      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "fleet-out-of-service",
@@ -435,12 +429,6 @@
       "at": 1793805201000,
       "status": "ok",
       "summary": "\"EnTouch/BMS alerts updated - Wed Nov 4\" email sent (Wed 11/4, 9:13 AM CT), after the page push"
-    },
-    {
-      "agentId": "mtd-fuel-trends",
-      "at": 1793826887000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Wed 11/4, 3:14 PM CT)"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -668,7 +656,7 @@
       "agentId": "fleet-out-of-service",
       "at": 1794243258000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4–9 and updated current report"
+      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4\u20139 and updated current report"
     },
     {
       "agentId": "fexa-daily-fleet-asset",
@@ -708,9 +696,33 @@
     },
     {
       "agentId": "mtd-fuel-trends",
+      "at": 1793279294000,
+      "status": "warn",
+      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+    },
+    {
+      "agentId": "mtd-fuel-trends",
+      "at": 1793826887000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Wed 11/4, 3:14 PM CT)"
+    },
+    {
+      "agentId": "mtd-fuel-trends",
       "at": 1794328232000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Tue 11/10, 10:30 AM CT): October 2026 closed, Oct 26-31 added (commit marks the workbook DRAFT); no \"Fuel Dashboard Updated\" email sent yet"
+    },
+    {
+      "agentId": "mtd-fuel-trends",
+      "at": 1794328760000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Tue 11/10, 10:39 AM CT): Nov 2-5 added, November MTD started"
+    },
+    {
+      "agentId": "mtd-fuel-trends",
+      "at": 1794330419000,
+      "status": "ok",
+      "summary": "Email sent: \"Fuel Dashboard Updated \u2013 Oct 26\u2013Nov 5, 2026 (October Closed, November MTD Started)\" (Tue 11/10, 11:06 AM CT)"
     }
   ],
   "inputs": [
