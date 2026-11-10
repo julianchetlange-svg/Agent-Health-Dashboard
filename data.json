@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794313144394,
+  "generatedAt": 1794328710002,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 9
+      "runCount": 10
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -104,7 +104,7 @@
         "github": "julianchetlange-svg/MTD-Fuel-Trends",
         "gmailSent": "subject:\"Fuel Dashboard Updated\" in:sent"
       },
-      "runCount": 2
+      "runCount": 3
     },
     {
       "id": "pm-compliance-dashboard",
@@ -192,7 +192,7 @@
         "github": "julianchetlange-svg/BMS-Alert-Report",
         "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
       },
-      "runCount": 5
+      "runCount": 6
     }
   ],
   "runs": [
@@ -687,6 +687,30 @@
       "at": 1794265458000,
       "status": "ok",
       "summary": "Daily date sync on report hub (push Mon 11/9, 5:04 PM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1794316858890,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-11-09.csv saved to Drive (Tue 11/10, 7:20 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1794317039000,
+      "status": "ok",
+      "summary": "DVIR dashboard updated on GitHub (push Tue 11/10, 7:23 AM CT): November 9 DVIR and November 10 Fexa"
+    },
+    {
+      "agentId": "bms-alert-report",
+      "at": 1794323608000,
+      "status": "ok",
+      "summary": "BMS page updated on GitHub (push Tue 11/10, 9:13 AM CT); \"BMS alerts updated\" email sent 9:13 AM CT, after the page push. Report date is Mon 11/9 although the 11/10 Active Alerts CSV arrived at 8:30 AM CT"
+    },
+    {
+      "agentId": "mtd-fuel-trends",
+      "at": 1794328232000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Tue 11/10, 10:30 AM CT): October 2026 closed, Oct 26-31 added (commit marks the workbook DRAFT); no \"Fuel Dashboard Updated\" email sent yet"
     }
   ],
   "inputs": [
@@ -734,7 +758,7 @@
       "id": "bms-active-alerts",
       "agentId": "bms-alert-report",
       "name": "EnTouch Active Alerts CSV",
-      "lastAt": 1794234608000,
+      "lastAt": 1794321004000,
       "maxQuietHours": 50,
       "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
