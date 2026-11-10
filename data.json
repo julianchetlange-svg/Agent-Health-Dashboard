@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1794248052820,
+  "generatedAt": 1794313144394,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,13 +20,13 @@
           3,
           30
         ],
-        "label": "2:30\u20133:00 AM CT"
+        "label": "2:30–3:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
       },
-      "runCount": 9
+      "runCount": 10
     },
     {
       "id": "dvir-report-master",
@@ -89,7 +89,7 @@
         "github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking",
         "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""
       },
-      "runCount": 7
+      "runCount": 8
     },
     {
       "id": "mtd-fuel-trends",
@@ -147,7 +147,7 @@
       "check": {
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
       },
-      "runCount": 9
+      "runCount": 10
     },
     {
       "id": "project-summary-progress",
@@ -186,7 +186,7 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon\u2013Sat"
+        "label": "9:00 AM CT, Mon–Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
@@ -236,7 +236,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1793279294000,
       "status": "warn",
-      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "fleet-out-of-service",
@@ -668,7 +668,25 @@
       "agentId": "fleet-out-of-service",
       "at": 1794243258000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4\u20139 and updated current report"
+      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4–9 and updated current report"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1794301907000,
+      "status": "ok",
+      "summary": "Daily update 2026-11-10 (push Tue 11/10, 3:11 AM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1794306642000,
+      "status": "ok",
+      "summary": "Out-of-service snapshot for Nov 10 (push Tue 11/10, 4:30 AM CT)"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1794265458000,
+      "status": "ok",
+      "summary": "Daily date sync on report hub (push Mon 11/9, 5:04 PM CT)"
     }
   ],
   "inputs": [
@@ -684,7 +702,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1794182711000,
+      "lastAt": 1794269124000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -692,7 +710,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1794016682000,
+      "lastAt": 1794275551000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
