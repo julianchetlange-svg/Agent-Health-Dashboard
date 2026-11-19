@@ -1125,12 +1125,6 @@
       "at": 1795106005000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Thu 11/19, 10:33 AM CT): rebuild after the 10:30 AM Contingency email"
-    },
-    {
-      "agentId": "mtd-fuel-trends",
-      "at": 1795099285000,
-      "status": "ok",
-      "summary": "Summary email sent: \"Fuel Dashboard Updated \u2013 Week of Nov 9\u2013Nov 15, 2026\" (Thu 11/19, 8:41 AM CT)"
     }
   ],
   "inputs": [
