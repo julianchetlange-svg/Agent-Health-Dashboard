@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795112032283,
+  "generatedAt": 1795176992911,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -26,7 +26,7 @@
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
       },
-      "runCount": 19
+      "runCount": 20
     },
     {
       "id": "dvir-report-master",
@@ -89,7 +89,7 @@
         "github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking",
         "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""
       },
-      "runCount": 17
+      "runCount": 18
     },
     {
       "id": "mtd-fuel-trends",
@@ -196,12 +196,6 @@
     }
   ],
   "runs": [
-    {
-      "agentId": "fexa-daily-fleet-asset",
-      "at": 1793610724000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/2, 3:12 AM CT)"
-    },
     {
       "agentId": "fexa-daily-fleet-asset",
       "at": 1793692833000,
@@ -1125,6 +1119,24 @@
       "at": 1795106005000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Thu 11/19, 10:33 AM CT): rebuild after the 10:30 AM Contingency email"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1795165878000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Fri 11/20, 3:11 AM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1795170420000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Fri 11/20, 4:27 AM CT)"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1795129453000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Thu 11/19, 5:04 PM CT)"
     }
   ],
   "inputs": [
@@ -1132,7 +1144,7 @@
       "id": "mtd-wex",
       "agentId": "mtd-fuel-trends",
       "name": "WEX fuel card report",
-      "lastAt": 1795089941000,
+      "lastAt": 1795176493000,
       "maxQuietHours": 72,
       "gmail": "from:onlineservices@wexinc.com"
     },
@@ -1140,7 +1152,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1795046719000,
+      "lastAt": 1795133112000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -1148,7 +1160,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1795053109000,
+      "lastAt": 1795139456000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
