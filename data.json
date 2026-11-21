@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795263219415,
+  "generatedAt": 1795279095424,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 18
+      "runCount": 19
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -192,7 +192,7 @@
         "github": "julianchetlange-svg/BMS-Alert-Report",
         "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
       },
-      "runCount": 12
+      "runCount": 13
     }
   ],
   "runs": [
@@ -1155,6 +1155,18 @@
       "at": 1795257230000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Sat 11/21, 4:33 AM CT)"
+    },
+    {
+      "agentId": "bms-alert-report",
+      "at": 1795273779000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Sat 11/21, 9:09 AM CT) for Nov 20 alerts; \"EnTouch/BMS alerts updated - Fri Nov 20\" email sent 9:09 AM CT, after the page push"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1795277076000,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-11-20.csv saved to Drive (Sat 11/21, 9:59 AM CT); dashboard updated on GitHub (push Sat 11/21, 10:04 AM CT)"
     }
   ],
   "inputs": [
@@ -1162,7 +1174,7 @@
       "id": "mtd-wex",
       "agentId": "mtd-fuel-trends",
       "name": "WEX fuel card report",
-      "lastAt": 1795176493000,
+      "lastAt": 1795266574000,
       "maxQuietHours": 72,
       "gmail": "from:onlineservices@wexinc.com"
     },
@@ -1170,7 +1182,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1795219513000,
+      "lastAt": 1795219514000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -1178,7 +1190,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1795226179000,
+      "lastAt": 1795226429000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
@@ -1194,7 +1206,7 @@
       "id": "psp-contingency",
       "agentId": "project-summary-progress",
       "name": "Fexa Current Budget Year Contingency",
-      "lastAt": 1795105837000,
+      "lastAt": 1795105838000,
       "maxQuietHours": 192,
       "gmail": "from:donotreply@fexa.io subject:\"Current Budget Year Contingency\""
     },
@@ -1202,7 +1214,7 @@
       "id": "bms-active-alerts",
       "agentId": "bms-alert-report",
       "name": "EnTouch Active Alerts CSV",
-      "lastAt": 1795185004000,
+      "lastAt": 1795271404000,
       "maxQuietHours": 50,
       "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
