@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795349654558,
+  "generatedAt": 1795365503761,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -1194,7 +1194,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1795219514000,
+      "lastAt": 1795305915000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
