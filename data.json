@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795436195109,
+  "generatedAt": 1795451889771,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,7 +20,7 @@
           3,
           30
         ],
-        "label": "2:30\u20133:00 AM CT"
+        "label": "2:30–3:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 19
+      "runCount": 20
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -56,7 +56,7 @@
       "check": {
         "github": "julianchetlange-svg/Facilities-WO-Follow-Up-Report"
       },
-      "runCount": 4
+      "runCount": 5
     },
     {
       "id": "fexa-open-wo-fleet",
@@ -70,7 +70,7 @@
       "check": {
         "github": "julianchetlange-svg/Fleet-WO-Follow-Up"
       },
-      "runCount": 4
+      "runCount": 5
     },
     {
       "id": "fleet-out-of-service",
@@ -118,7 +118,7 @@
       "check": {
         "github": "julianchetlange-svg/PM-Compliance-Dashboard"
       },
-      "runCount": 4
+      "runCount": 5
     },
     {
       "id": "registration-inspection-report",
@@ -186,13 +186,13 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon\u2013Sat"
+        "label": "9:00 AM CT, Mon–Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
         "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
       },
-      "runCount": 13
+      "runCount": 14
     }
   ],
   "runs": [
@@ -236,7 +236,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1793279294000,
       "status": "warn",
-      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "fleet-out-of-service",
@@ -626,7 +626,7 @@
       "agentId": "fleet-out-of-service",
       "at": 1794243258000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4\u20139 and updated current report"
+      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4–9 and updated current report"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -680,7 +680,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1794330419000,
       "status": "ok",
-      "summary": "Email sent: \"Fuel Dashboard Updated \u2013 Oct 26\u2013Nov 5, 2026 (October Closed, November MTD Started)\" (Tue 11/10, 11:06 AM CT)"
+      "summary": "Email sent: \"Fuel Dashboard Updated – Oct 26–Nov 5, 2026 (October Closed, November MTD Started)\" (Tue 11/10, 11:06 AM CT)"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -788,7 +788,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1794490540000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Thu 11/12, 7:34 AM CT) for Nov 2\u20138; \"Fuel Dashboard Updated \u2013 Week of Nov 2\u2013Nov 8, 2026\" email sent 7:35 AM CT, after the page push"
+      "summary": "Page updated on GitHub (push Thu 11/12, 7:34 AM CT) for Nov 2–8; \"Fuel Dashboard Updated – Week of Nov 2–Nov 8, 2026\" email sent 7:35 AM CT, after the page push"
     },
     {
       "agentId": "bms-alert-report",
@@ -1034,7 +1034,7 @@
       "agentId": "registration-inspection-report",
       "at": 1795005456000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Wed 11/18, 6:37 AM CT); \"Registration & Inspection Report \u2014 Updated and Ready for Review\" email sent 6:37 AM CT, after the page push"
+      "summary": "Page updated on GitHub (push Wed 11/18, 6:37 AM CT); \"Registration & Inspection Report — Updated and Ready for Review\" email sent 6:37 AM CT, after the page push"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -1088,7 +1088,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1795099210000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Thu 11/19, 8:40 AM CT) for Nov 9\u201315; \"Fuel Dashboard Updated \u2013 Week of Nov 9\u2013Nov 15, 2026\" email sent 8:41 AM CT, after the page push"
+      "summary": "Page updated on GitHub (push Thu 11/19, 8:40 AM CT) for Nov 9–15; \"Fuel Dashboard Updated – Week of Nov 9–Nov 15, 2026\" email sent 8:41 AM CT, after the page push"
     },
     {
       "agentId": "bms-alert-report",
@@ -1157,6 +1157,12 @@
       "summary": "DVIR-REPORT-MASTER-2026-11-20.csv saved to Drive (Sat 11/21, 9:59 AM CT); dashboard updated on GitHub (push Sat 11/21, 10:04 AM CT)"
     },
     {
+      "agentId": "report-hub-date-updater",
+      "at": 1795302232000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Sat 11/21, 5:03 PM CT)"
+    },
+    {
       "agentId": "fexa-daily-fleet-asset",
       "at": 1795338627000,
       "status": "ok",
@@ -1169,12 +1175,6 @@
       "summary": "Page updated on GitHub (push Sun 11/22, 4:33 AM CT)"
     },
     {
-      "agentId": "report-hub-date-updater",
-      "at": 1795302232000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Sat 11/21, 5:03 PM CT)"
-    },
-    {
       "agentId": "fexa-daily-fleet-asset",
       "at": 1795425056000,
       "status": "ok",
@@ -1185,6 +1185,36 @@
       "at": 1795429876000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Mon 11/23, 4:31 AM CT); Fexa email received 4:00 AM CT"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1795439959000,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-11-21.csv saved to Drive (Mon 11/23, 7:16 AM CT); dashboard updated on GitHub (push Mon 11/23, 7:19 AM CT) for Sat 11/21 DVIRs"
+    },
+    {
+      "agentId": "bms-alert-report",
+      "at": 1795446715000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/23, 9:11 AM CT) for Nov 22 alerts; \"EnTouch/BMS alerts updated - Mon Nov 23\" email sent 9:12 AM CT, after the page push"
+    },
+    {
+      "agentId": "pm-compliance-dashboard",
+      "at": 1795449778000,
+      "status": "ok",
+      "summary": "Weekly PM compliance update for 11/23 (push Mon 11/23, 10:02 AM CT)"
+    },
+    {
+      "agentId": "fexa-facility-wo-followup",
+      "at": 1795451058000,
+      "status": "ok",
+      "summary": "Facilities WO Follow-Up page updated on GitHub (push Mon 11/23, 10:24 AM CT)"
+    },
+    {
+      "agentId": "fexa-open-wo-fleet",
+      "at": 1795451060000,
+      "status": "ok",
+      "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 11/23, 10:24 AM CT)"
     }
   ],
   "inputs": [
@@ -1200,7 +1230,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1795305915000,
+      "lastAt": 1795392313000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -1232,7 +1262,7 @@
       "id": "bms-active-alerts",
       "agentId": "bms-alert-report",
       "name": "EnTouch Active Alerts CSV",
-      "lastAt": 1795271404000,
+      "lastAt": 1795444206000,
       "maxQuietHours": 50,
       "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
