@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795451889771,
+  "generatedAt": 1795522540604,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -20,13 +20,13 @@
           3,
           30
         ],
-        "label": "2:30–3:00 AM CT"
+        "label": "2:30\u20133:00 AM CT"
       },
       "check": {
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
       },
-      "runCount": 23
+      "runCount": 24
     },
     {
       "id": "dvir-report-master",
@@ -89,7 +89,7 @@
         "github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking",
         "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""
       },
-      "runCount": 21
+      "runCount": 22
     },
     {
       "id": "mtd-fuel-trends",
@@ -147,7 +147,7 @@
       "check": {
         "github": "julianchetlange-svg/Store-Dev-Facility-Fleet-Landing-Page"
       },
-      "runCount": 20
+      "runCount": 21
     },
     {
       "id": "project-summary-progress",
@@ -186,7 +186,7 @@
           11,
           0
         ],
-        "label": "9:00 AM CT, Mon–Sat"
+        "label": "9:00 AM CT, Mon\u2013Sat"
       },
       "check": {
         "github": "julianchetlange-svg/BMS-Alert-Report",
@@ -236,7 +236,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1793279294000,
       "status": "warn",
-      "summary": "Week of Oct 19–25 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
+      "summary": "Week of Oct 19\u201325 loaded and summary emailed. Oct 11 is missing from the source files, and the on-site averages are still through Oct 10."
     },
     {
       "agentId": "fleet-out-of-service",
@@ -345,12 +345,6 @@
       "at": 1793747051000,
       "status": "ok",
       "summary": "Landing page updated on GitHub (push Tue 11/3, 5:04 PM CT)"
-    },
-    {
-      "agentId": "fexa-daily-fleet-asset",
-      "at": 1793783492000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Wed 11/4, 3:11 AM CT)"
     },
     {
       "agentId": "fleet-out-of-service",
@@ -626,7 +620,7 @@
       "agentId": "fleet-out-of-service",
       "at": 1794243258000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4–9 and updated current report"
+      "summary": "Page updated on GitHub (push Mon 11/9, 10:54 AM CT): backfilled daily fleet closure history Nov 4\u20139 and updated current report"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -680,7 +674,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1794330419000,
       "status": "ok",
-      "summary": "Email sent: \"Fuel Dashboard Updated – Oct 26–Nov 5, 2026 (October Closed, November MTD Started)\" (Tue 11/10, 11:06 AM CT)"
+      "summary": "Email sent: \"Fuel Dashboard Updated \u2013 Oct 26\u2013Nov 5, 2026 (October Closed, November MTD Started)\" (Tue 11/10, 11:06 AM CT)"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -788,7 +782,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1794490540000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Thu 11/12, 7:34 AM CT) for Nov 2–8; \"Fuel Dashboard Updated – Week of Nov 2–Nov 8, 2026\" email sent 7:35 AM CT, after the page push"
+      "summary": "Page updated on GitHub (push Thu 11/12, 7:34 AM CT) for Nov 2\u20138; \"Fuel Dashboard Updated \u2013 Week of Nov 2\u2013Nov 8, 2026\" email sent 7:35 AM CT, after the page push"
     },
     {
       "agentId": "bms-alert-report",
@@ -1034,7 +1028,7 @@
       "agentId": "registration-inspection-report",
       "at": 1795005456000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Wed 11/18, 6:37 AM CT); \"Registration & Inspection Report — Updated and Ready for Review\" email sent 6:37 AM CT, after the page push"
+      "summary": "Page updated on GitHub (push Wed 11/18, 6:37 AM CT); \"Registration & Inspection Report \u2014 Updated and Ready for Review\" email sent 6:37 AM CT, after the page push"
     },
     {
       "agentId": "report-hub-date-updater",
@@ -1088,7 +1082,7 @@
       "agentId": "mtd-fuel-trends",
       "at": 1795099210000,
       "status": "ok",
-      "summary": "Page updated on GitHub (push Thu 11/19, 8:40 AM CT) for Nov 9–15; \"Fuel Dashboard Updated – Week of Nov 9–Nov 15, 2026\" email sent 8:41 AM CT, after the page push"
+      "summary": "Page updated on GitHub (push Thu 11/19, 8:40 AM CT) for Nov 9\u201315; \"Fuel Dashboard Updated \u2013 Week of Nov 9\u2013Nov 15, 2026\" email sent 8:41 AM CT, after the page push"
     },
     {
       "agentId": "bms-alert-report",
@@ -1215,6 +1209,30 @@
       "at": 1795451060000,
       "status": "ok",
       "summary": "Fleet WO Follow-Up page updated on GitHub (push Mon 11/23, 10:24 AM CT)"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1795511457000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Tue 11/24, 3:10 AM CT)"
+    },
+    {
+      "agentId": "fexa-open-wo-fleet",
+      "at": 1795470179000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/23, 3:42 PM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1795516250000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Tue 11/24, 4:30 AM CT)"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1795475044000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Mon 11/23, 5:04 PM CT)"
     }
   ],
   "inputs": [
@@ -1230,7 +1248,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1795392313000,
+      "lastAt": 1795478713000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -1238,7 +1256,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1795226429000,
+      "lastAt": 1795485039000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
