@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795608861992,
+  "generatedAt": 1795622937614,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -193,6 +193,20 @@
         "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
       },
       "runCount": 14
+    },
+    {
+      "id": "store-dev-fleet-update",
+      "name": "Store Development & Fleet Update",
+      "platform": "Claude",
+      "cadenceHours": 168,
+      "source": "GitHub",
+      "repo": "julianchetlange-svg/Store-Development-Fleet-Update",
+      "note": "Owner-driven update page tying Store Development, Facilities & Fleet work to the three-bucket framework; updated roughly weekly",
+      "paused": false,
+      "check": {
+        "github": "julianchetlange-svg/Store-Development-Fleet-Update"
+      },
+      "runCount": 1
     }
   ],
   "runs": [
@@ -1245,6 +1259,12 @@
       "at": 1795561474000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Tue 11/24, 5:04 PM CT)"
+    },
+    {
+      "agentId": "store-dev-fleet-update",
+      "at": 1795617312000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Wed 11/25, 8:35 AM CT)"
     }
   ],
   "inputs": [
