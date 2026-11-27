@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795711108885,
+  "generatedAt": 1795781641720,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -26,7 +26,7 @@
         "github": "julianchetlange-svg/Current-Fleet-Assets",
         "gmail": "from:donotreply@fexa.io subject:\"Daily Fleet Asset Report\""
       },
-      "runCount": 26
+      "runCount": 27
     },
     {
       "id": "dvir-report-master",
@@ -89,7 +89,7 @@
         "github": "julianchetlange-svg/Fleet-Out-of-Service-Tracking",
         "gmail": "from:donotreply@fexa.io subject:\"Fleet Out Of Service\""
       },
-      "runCount": 24
+      "runCount": 25
     },
     {
       "id": "mtd-fuel-trends",
@@ -253,18 +253,6 @@
       "summary": "Report hub lists Daily DVIR Analysis as updated 10/31 (date only, time approximate)"
     },
     {
-      "agentId": "report-hub-date-updater",
-      "at": 1793574267000,
-      "status": "ok",
-      "summary": "Landing page updated on GitHub (push Sun 11/1, 5:04 PM CT)"
-    },
-    {
-      "agentId": "fleet-out-of-service",
-      "at": 1793615541000,
-      "status": "ok",
-      "summary": "Page updated on GitHub (push Mon 11/2, 4:32 AM CT) after the 4:00 AM Fexa email"
-    },
-    {
       "agentId": "dvir-report-master",
       "at": 1793628954000,
       "status": "ok",
@@ -425,12 +413,6 @@
       "at": 1793927789000,
       "status": "ok",
       "summary": "DVIR dashboard updated on GitHub (push Thu 11/5, 7:16 PM CT)"
-    },
-    {
-      "agentId": "fexa-daily-fleet-asset",
-      "at": 1793952025000,
-      "status": "ok",
-      "summary": "Daily Fleet Asset Report email received (Fri 11/6, 2:00 AM CT)"
     },
     {
       "agentId": "fexa-daily-fleet-asset",
@@ -1313,6 +1295,24 @@
       "at": 1795710794000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Thu 11/26, 10:33 AM CT): Project Summary Report 2026-11-26, published after the 10:30 AM Contingency email"
+    },
+    {
+      "agentId": "report-hub-date-updater",
+      "at": 1795734261000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Thu 11/26, 5:04 PM CT): daily date sync for Daily DVIR Analysis, MTD Fuel Trends"
+    },
+    {
+      "agentId": "fexa-daily-fleet-asset",
+      "at": 1795770654000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Fri 11/27, 3:10 AM CT)"
+    },
+    {
+      "agentId": "fleet-out-of-service",
+      "at": 1795775584000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Fri 11/27, 4:33 AM CT)"
     }
   ],
   "inputs": [
@@ -1320,7 +1320,7 @@
       "id": "mtd-wex",
       "agentId": "mtd-fuel-trends",
       "name": "WEX fuel card report",
-      "lastAt": 1795692654000,
+      "lastAt": 1795780901000,
       "maxQuietHours": 72,
       "gmail": "from:onlineservices@wexinc.com"
     },
@@ -1328,7 +1328,7 @@
       "id": "mtd-fill-rite",
       "agentId": "mtd-fuel-trends",
       "name": "Fill-Rite daily report",
-      "lastAt": 1795651513000,
+      "lastAt": 1795737912000,
       "maxQuietHours": 36,
       "gmail": "from:info@fuelcloud.com subject:\"Fill-Rite Report\""
     },
@@ -1336,7 +1336,7 @@
       "id": "mtd-suncoast",
       "agentId": "mtd-fuel-trends",
       "name": "Suncoast price quote",
-      "lastAt": 1795658267000,
+      "lastAt": 1795743765000,
       "maxQuietHours": 72,
       "gmail": "from:pricing@suncoastresources.com"
     },
