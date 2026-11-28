@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1795868057366,
+  "generatedAt": 1795883906357,
   "agents": [
     {
       "id": "fexa-daily-fleet-asset",
@@ -42,7 +42,7 @@
         "github": "julianchetlange-svg/Daily-DVIR-Analysis"
       },
       "repo": "julianchetlange-svg/Daily-DVIR-Analysis",
-      "runCount": 24
+      "runCount": 25
     },
     {
       "id": "fexa-facility-wo-followup",
@@ -192,7 +192,7 @@
         "github": "julianchetlange-svg/BMS-Alert-Report",
         "gmailSent": "subject:\"BMS alerts updated\" in:sent -subject:Test"
       },
-      "runCount": 16
+      "runCount": 17
     },
     {
       "id": "store-dev-fleet-update",
@@ -389,12 +389,6 @@
       "at": 1795857076000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Sat 11/28, 3:11 AM CT)"
-    },
-    {
-      "agentId": "dvir-report-master",
-      "at": 1793628954000,
-      "status": "ok",
-      "summary": "DVIR dashboard updated on GitHub (push Mon 11/2, 8:15 AM CT)"
     },
     {
       "agentId": "dvir-report-master",
@@ -1325,6 +1319,18 @@
       "at": 1795783083000,
       "status": "ok",
       "summary": "Page updated on GitHub (push Fri 11/27, 6:38 AM CT)"
+    },
+    {
+      "agentId": "dvir-report-master",
+      "at": 1795872166000,
+      "status": "ok",
+      "summary": "DVIR-REPORT-MASTER-2026-11-27.csv saved to Drive (Sat 11/28, 7:19 AM CT); dashboard updated on GitHub (push Sat 11/28, 7:22 AM CT) for November 27 inspections"
+    },
+    {
+      "agentId": "bms-alert-report",
+      "at": 1795878549000,
+      "status": "ok",
+      "summary": "Page updated on GitHub (push Sat 11/28, 9:09 AM CT) for Nov 27 alerts; \"EnTouch/BMS alerts updated - Fri Nov 27\" email sent 9:09 AM CT, after the page push"
     }
   ],
   "inputs": [
@@ -1372,7 +1378,7 @@
       "id": "bms-active-alerts",
       "agentId": "bms-alert-report",
       "name": "EnTouch Active Alerts CSV",
-      "lastAt": 1795789804000,
+      "lastAt": 1795876205000,
       "maxQuietHours": 50,
       "gmail": "subject:\"Active Alerts\" has:attachment filename:csv"
     }
